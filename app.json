@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/messages/messages",
+    "pages/home/home",
+    "pages/teams/teams",
+    "pages/teamDetail/teamDetail",
+    "pages/addTeam/addTeam"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}
