@@ -1,8 +1,6 @@
 {
   "usingComponents":{
     "swiper":"../../components/swiper/swiper",
-    "searchBar":"../../components/searchBar/searchBar",
-    "categoryer":"../../components/categoryer/categoryer",
     "teamList": "../../components/teamList/teamList"
   }
 }
