@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "msg-list": "../../components/Msg/List/List",
     "debug-info": "../../components/DebugInfo/DebugInfo"
   }
 }

@@ -1,1 +1,7 @@
-{}
+{
+  "usingComponents": {
+    "apl-list": "../../components/Team/AplList/AplList",
+    "apl-form": "../../components/Team/AplForm/AplForm",
+    "debug-info": "../../components/DebugInfo/DebugInfo"
+  }
+}

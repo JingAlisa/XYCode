@@ -1,0 +1,19 @@
+/* Components/Msg/Item/Item.wxss */
+@import '../../../public/css/weui.wxss';
+
+.msg-item {
+  border-bottom: solid 1px #F5F5F5;
+}
+
+.badge {
+  margin-left: 5px;
+  padding: 3px 5px;
+}
+
+.badge-primary {
+  background-color: #1AAD19;
+}
+
+.badge-default {
+  background-color: #888888;
+}

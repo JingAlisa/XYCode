@@ -1,2 +1,46 @@
 <!--pages/teamDetail/teamDetail.wxml-->
-<text>pages/teamDetail/teamDetail.wxml</text>
+
+<debug-info curItemUid="{{ team.createrUid }}" />
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel">
+        <view class="weui-panel__hd">战队信息</view>
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ team.title }}</view>
+                <view class="weui-media-box__desc">{{ team.description }}</view>
+                <view class="weui-media-box__info teamInfo">
+                    <view class="weui-media-box__info__meta">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
+                    <view class="weui-media-box__info__meta">剩余 3.2 天</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 若为创建者或申请者 -->
+    <apl-list 
+      wx:if="{{ aplArea === 'all' || aplArea === 'self' }}"
+      bind:refreshTeam="loadTeam" 
+      applications="{{ applications }}" 
+      isCreater="{{ aplArea === 'all' ? true : false }}"
+      aplArea="{{ aplArea }}" 
+    />
+    <!-- 否则，若为游客 -->
+    <apl-form 
+      wx:elif="{{ aplArea === 'form' }}"
+      bind:refreshTeam="loadTeam" 
+      teamId="{{ team._id }}" 
+    />
+    <!-- 否则，显示loading -->
+    <view class="weui-loadmore" wx:else>
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+
+
+  </view>
+</view>
+
+
+

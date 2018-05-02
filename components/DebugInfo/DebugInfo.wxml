@@ -1,0 +1,6 @@
+<!--components/DebugInfo/DebugInfo.wxml-->
+<view class="DebugInfo">
+  <view class="title">调试信息</view>
+  <view class="content">当前登陆用户 Uid：{{ curLoginUid }}</view>
+  <view class="content" wx:if="{{ curItemUid }}">当前项目用户 Uid：{{ curItemUid }}</view>
+</view>
