@@ -1,7 +1,9 @@
 Component({
-  /**
-   * 组件的属性列表
-   */
+  relations:{
+    '../teamItem/teamItem':{
+      type:'child'
+    }
+  },
   properties: {
 
   },

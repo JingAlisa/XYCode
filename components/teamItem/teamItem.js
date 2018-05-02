@@ -1,13 +1,12 @@
 // pages/template/teamItem/teamItem.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    test:{
-      type:Number,
-      value:2
+  relations:{
+    '../teamList/teamList':{
+      type: 'parent'
     }
+  },
+  properties: {
+    
   },
 
   /**
