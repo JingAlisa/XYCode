@@ -75,7 +75,7 @@ Page({
   onReachBottom: function () {
     //上拉触底后再次向后台请求数据
     let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&pageIndex=1&pageSize=10";
-    util.getHttpRequest(hotURL, this.dealLazy);
+    util.getHttpRequest(lazyURL, this.dealLazy);
   },
 
   /**

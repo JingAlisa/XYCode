@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/messages/messages",
     "pages/home/home",
     "pages/teams/teams",
     "pages/teamDetail/teamDetail",
-    "pages/addTeam/addTeam"
+    "pages/addTeam/addTeam",
+    "pages/messages/messages"
   ],
   "window": {
     "backgroundTextStyle": "light",

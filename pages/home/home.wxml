@@ -1,2 +1,8 @@
 <!--pages/home/home.wxml-->
+<view>
+<swiper></swiper>
+<searchBar/>
+<categoryer/>
+<teamItem/>
+</view>
 <text>pages/home/home.wxml</text>

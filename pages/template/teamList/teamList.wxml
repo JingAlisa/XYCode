@@ -1,0 +1,5 @@
+<view>
+  <!-- <block wx:for = "{{1,2,3,4}}" wx:for-item="{{item}}">
+    <teamItem />
+  </block> -->
+</view>
