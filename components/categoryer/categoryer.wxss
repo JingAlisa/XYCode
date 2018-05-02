@@ -1,5 +1,5 @@
 /* pages/template/categoryer/categoryer.wxss */
- @import '../../../weui.wxss'; 
+ @import '../weui.wxss'; 
 page,
 .page,
 .page__bd{

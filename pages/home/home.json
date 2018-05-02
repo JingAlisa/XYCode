@@ -1,8 +1,8 @@
 {
   "usingComponents":{
-    "swiper":"../template/swiper/swiper",
-    "searchBar":"../template/searchBar/searchBar",
-    "categoryer":"../template/categoryer/categoryer",
-    "teamItem":"../template/teamItem/teamItem"
+    "swiper":"../../components/swiper/swiper",
+    "searchBar":"../../components/searchBar/searchBar",
+    "categoryer":"../../components/categoryer/categoryer",
+    "teamList": "../../components/teamList/teamList"
   }
 }

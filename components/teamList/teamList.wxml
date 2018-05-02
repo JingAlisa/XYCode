@@ -1,0 +1,6 @@
+ <import src="../teamItem/teamItem.wxml" />
+<view>
+   <block wx:for = "{{[{name:'Alisa'},{name:'Alisa'},{name:'Alisa'},{name:'Alisa'}]}}" wx:key="key" wx:for-item="{{item}}">
+     <template is="teamItem" test="{{item}}"></template>
+  </block> 
+</view> 

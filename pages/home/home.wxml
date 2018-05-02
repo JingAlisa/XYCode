@@ -3,6 +3,12 @@
 <swiper></swiper>
 <searchBar/>
 <categoryer/>
-<teamItem/>
+<teamList />
 </view>
 <text>pages/home/home.wxml</text>
+<view>
+  <block wx:for="{{[1,2,3]}}" wx:for-item="{{item}}">
+    {{item}}
+    222
+  </block>
+</view>
