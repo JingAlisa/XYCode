@@ -1,0 +1,37 @@
+<!--components/Team/AplForm/AplForm.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">请填写申请信息</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box">
+    
+      <form  bindsubmit="formSubmit" bindreset="formReset">
+          <!--<view class="weui-cells__title">联系方式</view>-->
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd" style="width: 105px">
+                <picker bindchange="bindContactWaysChange" value="{{ contactWayIndex }}" range="{{ contactWayTexts }}">
+                  <view class="weui-select">{{ contactWayTexts[contactWayIndex] }}</view>
+                </picker>
+              </view>
+              <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                <input class="weui-input" bindblur="bindContactTextChange" placeholder="请输入" name="contactText" />
+              </view>
+            </view>
+          </view>
+
+          <!--<view class="weui-cells__title">申请信息</view>-->
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <textarea class="weui-textarea" bindinput="bindApplyInfoChange" placeholder="请大胆的展示自己，增加申请成功几率，不超过500字" name="applyInfo" />
+                <view class="weui-textarea-counter">0/500</view>
+              </view>
+            </view>
+          </view>
+
+          <button type="primary" bindtap="submitApl">提交申请</button>
+      </form>
+
+    </view>
+  </view>
+</view>

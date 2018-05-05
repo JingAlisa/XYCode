@@ -1,0 +1,6 @@
+<!--Components/Msg/List/List.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:for="{{ msgs }}" wx:for-item="msg" wx:key="{{ msg._id }}">
+    <msg-item msg="{{ msg }}" />
+  </block>
+</view>

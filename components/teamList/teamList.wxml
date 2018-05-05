@@ -1,0 +1,8 @@
+ <!-- <import src="../teamItem/teamItem.wxml" /> -->
+<view class="listCtn">
+   <block wx:for = "{{listData}}" wx:key="item._id">
+     <!-- <template is="teamItem" test="{{item}}"></template> -->
+     <teamItem itemData="{{item}}"></teamItem>
+  </block> 
+  <view class='loadStat'>{{result}}</view>
+</view> 

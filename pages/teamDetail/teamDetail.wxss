@@ -1,1 +1,13 @@
 /* pages/teamDetail/teamDetail.wxss */
+
+.teamInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.teamDesp {
+  /*margin: 15rpx 0;*/
+  color: #888888;
+  font-size: 30rpx;
+}

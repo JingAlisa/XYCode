@@ -1,0 +1,6 @@
+@import '../../public/css/weui.wxss';
+.loadStat{
+  font-size: 12pt;
+  color:#666;
+  text-align: center;
+}

@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    listData: [],
+    pageIndex: 1,
+    pageSize: 8,
+    result: '正在加载...'
   },
 
   /**
@@ -15,13 +18,47 @@ Page({
    */
   onLoad: function (options) {
     //获取所有战队数据
-    let teamsURL = app.globalData.g_API +"/xiaoyuan/api/v1/teams?status=true";
-    util.getHttpRequest(teamsURL,this.dealTeams);
+    // let teamsURL = app.globalData.g_API +"/xiaoyuan/api/v1/teams?status=true";
+    // util.getHttpRequest(teamsURL,this.dealTeams);
+
+    //获取首次加载的数据
+    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&pageIndex=1&pageSize=10";
+    util.getHttpRequest(lazyURL, this.dealLazy);
   },
 
-  //获取战队数据后的处理函数
-  dealTeams:function(data){
-    console.log(data);
+  // //获取战队数据后的处理函数
+  // dealTeams:function(data){
+  //   console.log(data);
+  // },
+
+  //获取懒加载数据后的处理
+  dealLazy: function (data) {
+    let pageIndex = this.data.pageIndex + 1;
+    this.setData({
+      pageIndex: pageIndex
+    });
+    console.log();
+    var arrData = data.data.teams;
+    console.log(arrData);
+    if (arrData == undefined) {
+      this.setData({
+        result: '到底咯'
+      })
+    } else {
+      if (this.data.listData === []) {
+        this.setData({
+          listData: arrData
+        })
+      } else {
+        this.setData({
+          listData: this.data.listData.concat(arrData)
+        })
+      }
+    }
+
+    console.log(this.data.listData);
+
+
   },
 
   /**
@@ -63,7 +100,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    //上拉触底后再次向后台请求数据
+    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&" + "pageIndex=" + this.data.pageIndex + "pageSize=" + this.data.pageSize;
+    util.getHttpRequest(lazyURL, this.dealLazy);
   },
 
   /**

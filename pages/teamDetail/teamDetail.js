@@ -1,49 +1,116 @@
 // pages/teamDetail/teamDetail.js
 const app = getApp();
 const util = require("../../utils/util.js");
+const Team = require("../../utils/team")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    teamId:""
+    teamId:"",
+    team: {},
+    applications: [],
+    aplArea: 'loading'
+  },
+
+  /**
+   * 判断不同的用户角色，在申请区域显示不同的内容（申请者列表、申请表单
+   */
+  setRole: function (applications) {
+    let currUid = app.globalData.userId
+    let role = 'tourist'
+    let apls = []
+    if(currUid === this.data.team.createrUid) {
+      role = 'creater'
+      apls = applications               // 给出全部申请信息
+    } else {
+      let i = 0
+      for(;i < applications.length; i++) {
+        if(currUid === applications[i].applicantUid) {
+          role = 'applicant'
+          apls = [ applications[i] ]    // 仅获取到自己的申请信息
+          break;
+        }
+      }
+      if(i === applications.length) {
+        role = 'tourist'
+      }
+    }
+    
+    let aplArea = (role === 'creater') ? 'all' : (role === 'tourist' ? 'form' : 'self')  // 还应拓展对于通过审核者和其他申请者的区别
+    this.setData({
+      aplArea,
+      applications: apls
+    })
+  },
+
+  loadTeam: function (teamID) {
+    let that = this
+    let teamId = teamID
+    if(typeof(teamId) !== 'string' || !teamId) {
+      console.log('teamDetail收到从AplList传来的refreshTeam事件')
+      teamId = this.data.teamId
+    }
+
+    Team.getTeam(teamId).then(_ => {
+      that.setData({
+        team: _.team
+      })
+      return Team.getApplications(teamId)
+    }).then(_ => {
+      // 判断不同的用户角色，在申请区域显示不同的内容（申请者列表、申请表单）
+      this.setRole(_.applications)
+    }).catch(e => {
+      console.log('Promise.then 链式调用中出错了')
+      console.log(e)
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     //从上一个模板中获取teamId
-    let teamId = "5ade88efe1d0b750a755895d";
+    let teamId = options.id;
     this.setData({
       teamId:teamId
     })
 
+    this.loadTeam(teamId)
+
     //获取单个战队的详细信息
-    let teamDetailURL = app.globalData.g_API +"/xiaoyuan/api/v1/team/"+this.data.teamId;
-    util.getHttpRequest(teamDetailURL,this.dealTeamDetail);
+    //let teamDetailURL = app.globalData.g_API +"/xiaoyuan/api/v1/team/"+this.data.teamId;
+    //util.getHttpRequest(teamDetailURL,this.dealTeamDetail);
 
     //点击申请
-    this.applyPostFun();
+    //this.applyPostFun();
 
     //根据是否为发布者，是否申请，是否通过审批显示不同的数据
     //获取申请列表
-    let applyArrURL = app.globalData.g_API + "/xiaoyuan/api/v1/team/" + this.data.teamId+"/applications";
-    util.getHttpRequest(applyArrURL,this.dealApplyArr);
+    //let applyArrURL = app.globalData.g_API + "/xiaoyuan/api/v1/team/" + this.data.teamId+"/applications";
+    //util.getHttpRequest(applyArrURL,this.dealApplyArr);
 
     //发布者审批
-    this.judgePostFun();
+    //this.judgePostFun();
   },
 
   //获取详细信息后的处理
   dealTeamDetail:function(data){
-    console.log(data);
+    let team = data.data.team
+    this.setData({
+      team,
+      userId: team.createrUid
+    })
   },
 
   //获取申请列表数据后的处理
   dealApplyArr:function(data){
-    console.log(data);
+    this.setData({
+      applications: data.data.applications
+    })
   },
 
   //用户提交申请处理

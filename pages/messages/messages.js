@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    userUid: '',
+    msgs_pub: [],
+    msgs_apl: []
   },
 
   /**
@@ -16,6 +18,10 @@ Page({
   onLoad: function (options) {
     //从app.js文件中获取userId
     let userId = app.globalData.userId;
+
+    this.setData({
+      userId
+    })
 
     //获取发布消息
     let publicListsURL = app.globalData.g_API + "/xiaoyuan/api/v1/message/" + userId +"?role=creater";
@@ -28,11 +34,15 @@ Page({
 
   //获取发布消息后的处理
   dealPublicLists:function(data){
-    console.log(data);
+    this.setData({
+      msgs_pub: data.data.messages
+    })
   },
 
   dealApplyLists:function(data){
-    console.log(data);
+    this.setData({
+      msgs_apl: data.data.messages
+    })
   },
 
   /**

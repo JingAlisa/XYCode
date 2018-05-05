@@ -1,0 +1,2 @@
+/* pages/template/teamItem/teamItem.wxss */
+@import '../../public/css/weui.wxss';

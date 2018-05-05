@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents":{
+    "swiper":"../../components/swiper/swiper",
+    "teamList": "../../components/teamList/teamList"
+  }
+}
