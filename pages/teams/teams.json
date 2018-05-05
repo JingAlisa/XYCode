@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "searchBar": "../../components/searchBar/searchBar",
-    "categoryer": "../../components/categoryer/categoryer",
-    "teamList": "../../components/teamList/teamList"
+    "categoryer": "../../components/categoryer/categoryer"
   }
 }

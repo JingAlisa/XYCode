@@ -1,9 +1,19 @@
 Component({
+  properties: {
+    hotData:{
+      type: Array,
+      value: [],
+      observer: function (newVal, oldVal) {
+
+      }
+    }
+  },
   data: {
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      '../../public/img/logo.png',
+      '../../public/img/study.png',
+      '../../public/img/life.jpg',
+      '../../public/img/friend.png'
     ],
     indicatorDots: true,
     autoplay: true,

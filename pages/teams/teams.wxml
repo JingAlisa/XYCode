@@ -1,4 +1,6 @@
 <!--pages/teams/teams.wxml-->
-<searchBar/>
-<categoryer/>
-<text>pages/teams/teams.wxml</text>
+<view class='teamsCtn'>
+  <searchBar class="searchBarCtn"/>
+  <categoryer class="categoryCtn" listData="{{listData}}" result="{{result}}"/>
+</view>
+

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "debug-info": "../../components/DebugInfo/DebugInfo"
+  }
+}

@@ -1,7 +1,8 @@
  <!-- <import src="../teamItem/teamItem.wxml" /> -->
-<view>
-   <block wx:for = "{{[{name:'Alisa'},{name:'Jing'},{name:'Alisa'},{name:'Alisa'}]}}" wx:key="key" wx:for-item="item">
+<view class="listCtn">
+   <block wx:for = "{{listData}}" wx:key="item._id">
      <!-- <template is="teamItem" test="{{item}}"></template> -->
-     <teamItem item="{{item}}"></teamItem>
+     <teamItem itemData="{{item}}"></teamItem>
   </block> 
+  <view class='loadStat'>{{result}}</view>
 </view> 

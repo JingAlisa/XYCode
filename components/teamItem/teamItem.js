@@ -6,7 +6,7 @@ Component({
     }
   },
   properties: {
-    item:{
+    itemData:{
       type:Object,
       value:{}
     }

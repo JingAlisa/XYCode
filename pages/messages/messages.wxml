@@ -1,2 +1,18 @@
 <!--pages/messages/messages.wxml-->
-<text>pages/messages/messages.wxml</text>
+
+<debug-info />
+
+<view class="page">
+    <view class="page__bd">
+
+      <view class="weui-cells__title">作为创建者</view>
+      <msg-list msgs="{{ msgs_pub }}" />
+
+      <view class="weui-cells__title">作为申请者</view>
+      <msg-list msgs="{{ msgs_apl }}" />
+
+    </view>
+</view>
+
+
+
