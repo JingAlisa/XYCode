@@ -1,21 +1,15 @@
 <!--pages/template/teamItem/teamItem.wxml-->
-<navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}'>
-  <view class="page">
-      <view class="page__bd">
-          <view class="weui-panel">
-              <view class="weui-panel__bd">
-                  <view class="weui-media-box weui-media-box_text">
-                      <view class="weui-media-box__title weui-media-box__title_in-text">{{itemData.title}}</view>
-                      <view class="weui-media-box__desc">{{itemData.description}}</view>
-                      <view class="weui-media-box__info">
-                          <view class="weui-media-box__info__meta">成员人数</view>
-                          <view class="weui-media-box__info__meta">{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</view>
-                          <!-- <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息{{item.name}}</view> -->
-                      </view>
-                  </view>
-              </view>
-          </view>
-      </view>
-  </view>
+<view class='teamItemCtn'>
+<navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}' class="itemCtn">
+    <view class="avatarAndCount">
+        <image class="avatarImg" src="{{icon60}}" /> 
+        <view class="countCtn">
+            <view class=""><span class="countTitle">招募:</span>{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</view>
+        </view>
+    </view>
+    <view class="itemDetail">
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{itemData.title}}</view>
+        <view class="weui-media-box__desc">{{itemData.description}}</view>   
+    </view>
 </navigator>
-
+</view>

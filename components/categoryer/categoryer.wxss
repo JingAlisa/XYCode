@@ -1,14 +1,25 @@
 /* pages/template/categoryer/categoryer.wxss */
 @import '../../public/css/weui.wxss';
-page,
-.page,
-.page__bd{
-    height: 100%;
+.categoryCtn{
+  margin: 25px auto 5px;
 }
-.page__bd{
-    padding-bottom: 0;
+.categoryTabs{
+  display: flex;
+  text-align: center;
+  font-size: 12pt;
 }
-
-/* .weui-tab{
-  z-index: -1;
-} */
+.categoryTabItem{
+  flex: 1;
+  background-color: #c0c0c0;
+  color:white;
+  padding:2px;
+  margin:0 8px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 5px #999;
+}
+.activeTabItem{
+  background-color: #ff8080;
+}
+.teamListCtn{
+  margin-top:20px;
+}

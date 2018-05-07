@@ -10,7 +10,7 @@ Page({
     listData: [],
     pageIndex: 1,
     pageSize: 8,
-    result: '正在加载...'
+    result: ''
   },
 
   /**
@@ -21,15 +21,52 @@ Page({
     // let teamsURL = app.globalData.g_API +"/xiaoyuan/api/v1/teams?status=true";
     // util.getHttpRequest(teamsURL,this.dealTeams);
 
+    // 获取slider热门消息
+    let hotURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?attr=hot";
+    util.getHttpRequest(hotURL, this.dealHot);
+
     //获取首次加载的数据
     let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&pageIndex=1&pageSize=10";
     util.getHttpRequest(lazyURL, this.dealLazy);
   },
 
-  // //获取战队数据后的处理函数
-  // dealTeams:function(data){
-  //   console.log(data);
-  // },
+  //获取slider数据后的处理函数
+  dealHot: function (data) {
+    console.log(data);
+    let dataArr = data.data.teams;
+    let hotData = [];
+    for (let key in dataArr) {
+      if (dataArr[key].team === null) {
+        hotData[key] = {
+          title: '在校缘与你相遇',
+          slogan: '校缘致力于为大家提供一个交流的机会',
+          description: '让每个有想法的人不再孤军奋战'
+        }
+      } else {
+        switch (dataArr[key].category) {
+          case "study":
+            hotData[0] = dataArr[key].team;
+            hotData[0].slogan = '众人拾柴火焰高，来来来再添把火'
+            break;
+          case "life":
+            hotData[1] = dataArr[key].team;
+            hotData[1].slogan = '别犹豫了，再不疯狂就老了'
+            break;
+          case "friends":
+            hotData[2] = dataArr[key].team;
+            hotData[2].slogan = '来不及解释了，快上车'
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    this.setData({
+      hotData: hotData
+    })
+  },
+
+
 
   //获取懒加载数据后的处理
   dealLazy: function (data) {
@@ -40,7 +77,7 @@ Page({
     console.log();
     var arrData = data.data.teams;
     console.log(arrData);
-    if (arrData == undefined) {
+    if (arrData.length==0) {
       this.setData({
         result: '到底咯'
       })
@@ -100,8 +137,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      result: '正在加载...'
+    });
     //上拉触底后再次向后台请求数据
-    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&" + "pageIndex=" + this.data.pageIndex + "pageSize=" + this.data.pageSize;
+    console.log(this.data.pageIndex);
+    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&" + "pageIndex=" + this.data.pageIndex + "&pageSize=" + this.data.pageSize;
     util.getHttpRequest(lazyURL, this.dealLazy);
   },
 

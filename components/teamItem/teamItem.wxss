@@ -1,2 +1,38 @@
 /* pages/template/teamItem/teamItem.wxss */
 @import '../../public/css/weui.wxss';
+.teamItemCtn{
+}
+.itemCtn{
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  margin:0 auto 20px;
+  border:1px solid #999;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px 5px #bbb;
+}
+.itemCtn .avatarAndCount{
+  flex: 1;
+}
+.itemCtn .itemDetail{
+  flex: 3;
+}
+.avatarAndCount{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.avatarImg{
+  width: 40pt;
+  height: 40pt;
+  flex: 2;
+}
+.countCtn{
+  font-size: 10px;
+  flex: 1;
+  vertical-align: bottom;
+  color: #999;
+}
+.countTitle{
+  margin-right: 10px;
+}

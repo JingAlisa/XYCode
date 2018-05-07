@@ -13,6 +13,7 @@ Page({
 
     categoryIndex:0,
     categories:['学习类','生活类','交友类'],
+    category:['study','life','friends'],
 
     saveDaysIndex:0,
     saveDays:['3','5','7'],
@@ -124,7 +125,7 @@ Page({
     let addData={
       "team":{
         "title": formData.title,
-        "category": this.data.categories[formData.category],
+        "category": this.data.category[formData.category],
         "description":formData.description,
         "memberMaxNumber": this.data.maxMember[formData.maxMember],
         "preserveMaxDays": this.data.saveDays[formData.saveDays],

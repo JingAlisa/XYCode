@@ -9,6 +9,7 @@ Component({
     listData:{
       type:Array,
       value:[],
+      observe:function(newVal,oldVal){}
     },
     result:{
       type:String,
@@ -24,7 +25,8 @@ Component({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    categoryData:[]
+    categoryData:[],
+    activeTab:[]
   },
 
   ready:function(){
@@ -49,9 +51,12 @@ Component({
       });
     },
     tabClick: function (e) {
+      let activeTab=[];
+      activeTab[e.currentTarget.id] ='activeTabItem';
       this.setData({
         sliderOffset: e.currentTarget.offsetLeft,
-        activeIndex: e.currentTarget.id
+        activeIndex: e.currentTarget.id,
+        activeTab: activeTab
       });
       console.log(e.currentTarget.id);
       console.log(this.properties.listData);
