@@ -41,8 +41,25 @@ const postHttpRequest=(url,data,callback)=>{
   })
 }
 
+// 过滤函数
+const filterData = (listData, category) => {
+  if (category == 'all') {
+    return listData;
+  } else {
+    let categoryData = [];
+    for (let key in listData) {
+      if (listData[key].category == category) {
+        categoryData.push(listData[key]);
+      }
+    }
+    return categoryData;
+  }
+
+}
+
 module.exports = {
   formatTime: formatTime,
   getHttpRequest: getHttpRequest,
-  postHttpRequest: postHttpRequest
+  postHttpRequest: postHttpRequest,
+  filterData: filterData
 }

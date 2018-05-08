@@ -2,7 +2,7 @@
 
 <view class="weui-media-box weui-media-box_text">
     <view class="weui-media-box__title weui-media-box__title_in-text">
-      {{ application.judgeTime ? (application.judgment === true ? '【已通过】' : '【已拒绝】') : '【审核中】'  }}{{ application.applicantUid }}
+      {{ application.judgeTime ? (application.judgment === true ? '【已通过】' : '【已拒绝】') : '【审核中】'  }}{{ application.applicantNickName }}
     </view>
     <view class="weui-media-box__desc">{{ application.applyInfo }}</view>
     <view class="weui-media-box__info teamInfo" wx:if="{{ isCreater && !application.judgeTime }}">

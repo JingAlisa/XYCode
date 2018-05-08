@@ -1,7 +1,7 @@
 //app.js
 App({
   globalData:{
-    g_API:"https://hooxz.cn",
+    g_API:"https://www.hooxz.cn",
     userId:'xd_Alisa'
   },
   onLaunch: function () {

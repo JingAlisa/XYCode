@@ -1,0 +1,12 @@
+<view class="searchMesgPage">
+        <view class='searchCtn'>
+          <icon class="" type="search" size="14"></icon>
+          <input type="text" class="" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="cancel" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <view class='messageCtn' bindtap="jumpToMessage">
+          <image  src='../../public/img/icon/message.png'></image>  
+        </view>
+</view>

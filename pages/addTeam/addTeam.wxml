@@ -1,2 +1,85 @@
 <!--pages/addTeam/addTeam.wxml-->
-<text>pages/addTeam/addTeam.wxml</text>
+<form bindsubmit='formSubmit'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTips}}">请完善内容</view>
+  <view class="weui-cells__title">选择</view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCategoryChange" name="category" value="{{categoryIndex}}" range="{{categories}}">
+                  <view class="weui-select">{{categories[categoryIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+  </view>
+  <view class="weui-cells__title">战队信息</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input"  name="title" placeholder="请输入战队名称"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">发布时长</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker bindchange="bindSaveDaysChange"  name="saveDays" value="{{saveDaysIndex}}" range="{{saveDays}}">
+                  <view class="weui-select weui-select_in-select-after">{{saveDays[saveDaysIndex]}}天</view>
+              </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">战队人数</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindMaxMemberChange"  name="maxMember" value="{{maxMemberIndex}}" range="{{maxMember}}">
+                  <view class="weui-select weui-select_in-select-after">{{maxMember[maxMemberIndex]}}天</view>
+              </picker>
+            </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+              <view class="weui-cell__bd">
+                  <textarea class="weui-textarea" name="description" placeholder="请简单介绍战队信息，以便大家积极加入，不超过200字" style="height: 3.3em" />
+                  <view class="weui-textarea-counter">0/200</view>
+              </view>
+          </view>
+        </view>
+    </view>
+
+  <view class="weui-cells__title">联系方式(至少填写一项)</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">qq</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" name="qq" type="number" placeholder="请输入qq号码"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">微信</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" name="wechat" placeholder="请输入微信号"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">电话</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" name="phone" type="number" placeholder="请输入手机号"/>
+        </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+      <button class="weui-btn" formType="submit">提交</button>
+  </view>
+
+</form>

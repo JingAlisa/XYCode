@@ -1,2 +1,5 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>
+<swiper hotData="{{hotData}}"></swiper>
+<teamList listData="{{listData}}" result="{{result}}" />
+</view>

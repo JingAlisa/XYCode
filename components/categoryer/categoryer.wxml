@@ -1,0 +1,29 @@
+<!--pages/template/categoryer/categoryer.wxml-->
+<view class="categoryCtn">
+    <view class="">
+        <view class="">
+            <view class="categoryTabs">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="categoryTabItem {{activeIndex===index ? 'activeTabItem' : ''}}  {{activeTab[index]}}" bindtap="tabClick" bindfilterdata="filterData">
+                        <view class="">{{item}}</view>
+                    </view>
+                </block>
+                <view class="" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="teamListCtn">
+                <view class="" hidden="{{activeIndex != 0}}">
+                  <teamList listData="{{listData}}" result="{{result}}"/>
+                </view>
+                <view class="" hidden="{{activeIndex != 1}}">
+                  <teamList listData="{{categoryData}}" result="{{result}}"/>
+                </view>
+                <view class="" hidden="{{activeIndex != 2}}">
+                  <teamList listData="{{categoryData}}" result="{{result}}"/>
+                </view>
+                <view class="" hidden="{{activeIndex != 3}}">
+                  <teamList listData="{{categoryData}}" result="{{result}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

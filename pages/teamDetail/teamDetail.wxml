@@ -1,6 +1,6 @@
 <!--pages/teamDetail/teamDetail.wxml-->
 
-<debug-info curItemUid="{{ team.createrUid }}" />
+<!--<debug-info curItemUid="{{ team.createrUid }}" />-->
 
 <view class="page">
   <view class="page__bd">
@@ -14,6 +14,10 @@
                     <view class="weui-media-box__info__meta">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
                     <view class="weui-media-box__info__meta">剩余 3.2 天</view>
                 </view>
+            </view>
+            <view class='userInfo'>
+                <image class="userInfo-avatar" src="{{ team.createrAvatarUrl }}" background-size="cover"></image>
+                <text class='userInfo-name'>{{ team.createrNickName }}</text>
             </view>
         </view>
     </view>

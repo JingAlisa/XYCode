@@ -46,41 +46,28 @@ function login(){
 	})
 }
 
-
-
-// 请求，含微信身份验证
-function ajax(url, data, method="GET", config={}){
-	let session_3rd = wx.getStorageSync('session_3rd') // 获取skey
-	if(!session_3rd){  // 没有skey，首次登录
-		return new Promise((resolve, reject) => {
-			login()
-			reject('请登录')
+// 从微信获取用户信息
+function getUserInfoFromWx(){
+	return new Promise((resolve, reject) => {
+		wx.getUserInfo({
+			success: function(response) {
+				// var userInfo = res.userInfo
+				// var nickName = userInfo.nickName
+				// var avatarUrl = userInfo.avatarUrl
+				// var gender = userInfo.gender //性别 0：未知、1：男、2：女
+				// var province = userInfo.province
+				// var city = userInfo.city
+				// var country = userInfo.country
+				resolve(response.userInfo)
+			}
 		})
-	} else {
-		return new Promise((resolve, reject) => {
-      checkSession().then( _=> {
-        if (_){ // session_key有效
-          wx.request({
-            url,
-            method: method.toLocaleUpperCase(),
-            data,
-            header: Object.assign({}, { session_3rd }, config),
-            success: (ret) => {
-              resolve(ret.data)
-            }
-          })
-        } else { // session_3rd失效
-          login()
-          reject('session_3rd')
-        }
-      })
-    })
-
-	}
+	})
 }
 
 module.exports = {
-	login
+	checkSession,
+	login,
+	getUserInfoFromWx
 }
 
 // app.Util.ajax('http://172.28.17.99:3000/crypto', { iv: ret.iv, data: ret.encryptedData }, 'post').then(_ => {

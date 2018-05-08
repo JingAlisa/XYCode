@@ -1,6 +1,7 @@
 // pages/mine/mine.js
 const app = getApp();
-const LOGIN = require("../../utils/login.js");
+const { login, getUserInfoFromWx } = require("../../utils/login.js");
+const { getUserInfo, setUserInfo } = require('../../utils/user')
 
 Page({
 
@@ -8,16 +9,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    avatarUrl: '',
+    nickName: ''
   },
 
   loginManually: function () {
-    LOGIN.login().then((key) => {
+    let that = this
+
+    login().then((key) => {
       // 目前的key暂时是openid
       console.log('登陆获得的session_3rd为 ' + key)
+      getUserInfoFromWx().then(_ => {
+        // _.nickName
+        setUserInfo(_)
+        that.setData({
+          avatarUrl: _.avatarUrl,
+          nickName: _.nickName
+        })
+      })
     }).catch((e) => {
       console.log("登陆失败，错误为 ")
       console.log(e)
+    })
+  },
+
+  clearLocalLogin: function () {
+    let that = this
+    wx.removeStorage({
+      key: 'session_3rd',
+      success: function () {
+        that.loginManually()
+      }
+    })
+  },
+
+  getUserInfoFromServer: function () {
+    let that = this
+    getUserInfo().then(_ => {
+      console.log(_)
     })
   },
 
@@ -48,7 +77,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    let that = this
+    getUserInfo().then(_ => {
+      let userInfo = _.user
+      that.setData({
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName
+      })
+    })
   },
 
   /**

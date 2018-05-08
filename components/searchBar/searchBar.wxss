@@ -1,0 +1,41 @@
+@import '../../public/css/weui.wxss';
+.searchMesgPage{
+  height: 25px;
+  line-height: 25px;
+  margin:0 auto 5px;
+  padding:5px;
+  border:1px solid #595959;
+  border-radius: 15px;
+}
+.searchCtn{
+  float: left;
+  width: 85%;
+  display: table-cell;
+  margin:auto;
+}
+.searchCtn icon{
+  float: left;
+  padding:5px;
+}
+.searchCtn input{
+  width: 85%;
+  height: 25px;
+  float: left;
+  font-size: 11pt;
+}
+.searchCtn .cancel{
+  width: 5%;
+  float: left;
+}
+.messageCtn{
+  float: left;
+  width: 15%;
+  margin:auto;
+  text-align: right;
+}
+.messageCtn image{
+  width: 20px;
+  height: 20px;
+  padding:2px 2px 2px 7px;
+  border-left:1px solid #595959;
+}
