@@ -1,6 +1,9 @@
 // pages/messages/messages.js
 const app = getApp();
 const util = require("../../utils/util.js");
+const Team = require("../../utils/team")
+
+
 Page({
 
   /**
@@ -16,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     //从app.js文件中获取userId
     let userId = app.globalData.userId;
 
@@ -24,24 +28,27 @@ Page({
     })
 
     //获取发布消息
-    let publicListsURL = app.globalData.g_API + "/xiaoyuan/api/v1/message/" + userId +"?role=creater";
-    util.getHttpRequest(publicListsURL, this.dealPublicLists);
+    Team.getMsgs('creater', userId).then(_ => {
+      that.dealPublicLists(_.messages)
+    })
 
     //获取申请消息
-    let applyListsURL = app.globalData.g_API + "/xiaoyuan/api/v1/message/" + userId + "?role=applicant";
-    util.getHttpRequest(applyListsURL, this.dealApplyLists);
+    Team.getMsgs('applicant', userId).then(_ => {
+      that.dealApplyLists(_.messages)
+    })
+
   },
 
   //获取发布消息后的处理
-  dealPublicLists:function(data){
+  dealPublicLists:function(msgs){
     this.setData({
-      msgs_pub: data.data.messages
+      msgs_pub: msgs
     })
   },
 
-  dealApplyLists:function(data){
+  dealApplyLists:function(msgs){
     this.setData({
-      msgs_apl: data.data.messages
+      msgs_apl: msgs
     })
   },
 

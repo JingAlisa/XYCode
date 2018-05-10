@@ -2,7 +2,7 @@
 <view class='teamItemCtn'>
 <navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}' class="itemCtn">
     <view class="avatarAndCount">
-        <image class="avatarImg" src="{{icon60}}" /> 
+        <image class="avatarImg" src="{{ (itemData && itemData.createrAvatarUrl) ? itemData.createrAvatarUrl : icon60 }}" /> 
         <view class="countCtn">
             <view class=""><span class="countTitle">招募:</span>{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</view>
         </view>
