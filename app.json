@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/addTeam/addTeam",
     "pages/teams/teams",
+    "pages/addTeam/addTeam",
     "pages/home/home",
     "pages/messages/messages",
     "pages/teamDetail/teamDetail",
@@ -26,10 +26,6 @@
       {
         "pagePath": "pages/addTeam/addTeam",
         "text": "新增战队"
-      },
-      {
-        "pagePath": "pages/messages/messages",
-        "text": "消息"
       },
       {
         "pagePath": "pages/mine/mine",

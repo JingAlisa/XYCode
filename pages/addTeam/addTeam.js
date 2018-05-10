@@ -1,6 +1,8 @@
 // pages/addTeam/addTeam.js
 const app = getApp();
 const util = require("../../utils/util.js");
+const { addTeam } = require("../../utils/team");
+
 Page({
 
   /**
@@ -13,6 +15,7 @@ Page({
 
     categoryIndex:0,
     categories:['学习类','生活类','交友类'],
+    category:['study','life','friends'],
 
     saveDaysIndex:0,
     saveDays:['3','5','7'],
@@ -84,6 +87,7 @@ Page({
 
   //添加后的处理函数
   formSubmit:function(e){
+    let that = this
     //判断是否填写全
     console.log(e.detail.value);
     const formData=e.detail.value;
@@ -121,20 +125,17 @@ Page({
       }
       console.log(contact);
       // 获取用户填写的数据
-    let addData={
-      "team":{
+      let team={
         "title": formData.title,
-        "category": this.data.categories[formData.category],
+        "category": this.data.category[formData.category],
         "description":formData.description,
         "memberMaxNumber": this.data.maxMember[formData.maxMember],
         "preserveMaxDays": this.data.saveDays[formData.saveDays],
-        "contact": contact,
-        "createrUid": app.globalData.userId
-      }
-    };
-    console.log(addData);
-    let addTeamURL = app.globalData.g_API + "/xiaoyuan/api/v1/team";
-    util.postHttpRequest(addTeamURL, addData, this.addResult);  
+        "contact": contact
+      };
+      addTeam(team).then(_ => {
+        that.addResult()
+      })
     }
   },
 

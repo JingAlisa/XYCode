@@ -11,7 +11,7 @@ Page({
     listData:[],
     pageIndex: 1,
     pageSize: 8,
-    result:'正在加载...'
+    result:''
   },
 
   /**
@@ -73,7 +73,7 @@ Page({
     console.log();
     var arrData = data.data.teams;
     console.log(arrData);
-    if (arrData==undefined){
+    if (arrData.length==0){
       this.setData({
         result:'到底咯'
       })
@@ -133,8 +133,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      result: '正在加载...'
+    });
     //上拉触底后再次向后台请求数据
-    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&" + "pageIndex=" + this.data.pageIndex + "pageSize=" + this.data.pageSize;
+    let lazyURL = app.globalData.g_API + "/xiaoyuan/api/v1/teams?status=true&" + "pageIndex=" + this.data.pageIndex + "&pageSize=" + this.data.pageSize;
     util.getHttpRequest(lazyURL, this.dealLazy);
   },
   /**

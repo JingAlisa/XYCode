@@ -1,6 +1,7 @@
 <!--pages/teams/teams.wxml-->
 <view class='teamsCtn'>
   <searchBar class="searchBarCtn"/>
+  <swiper hotData="{{hotData}}"></swiper>
   <categoryer class="categoryCtn" listData="{{listData}}" result="{{result}}"/>
 </view>
 

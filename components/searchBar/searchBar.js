@@ -24,6 +24,11 @@ Component({
       this.setData({
         inputVal: e.detail.value
       });
+    },
+    jumpToMessage:function(e){
+      wx.navigateTo({
+        url: '../../pages/messages/messages'
+      })
     }
   }
 })

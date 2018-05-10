@@ -1,3 +1,9 @@
+.sliderContainer{
+  margin:20px auto;
+  border-radius: 10px;
+  box-shadow: 2px 5px 12px 10px #bbb;  
+  background-color: #bbb;
+}
 .sliderImg{
   width:100%;
   z-index: -100;
@@ -7,10 +13,11 @@
 
 .sliderItem{
   font-size: 12pt;
+  border-radius: 10px;
 }
 
 .sliderContent{
-  width: 80%;
+  /* width: 80%; */
   padding:10px;
 }
 .sliderContent view:nth-child(1){

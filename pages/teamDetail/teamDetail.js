@@ -11,6 +11,7 @@ Page({
   data: {
     teamId:"",
     team: {},
+    currUserUid: '',
     applications: [],
     aplArea: 'loading'
   },
@@ -19,7 +20,7 @@ Page({
    * 判断不同的用户角色，在申请区域显示不同的内容（申请者列表、申请表单
    */
   setRole: function (applications) {
-    let currUid = app.globalData.userId
+    let currUid = this.data.currUserUid
     let role = 'tourist'
     let apls = []
     if(currUid === this.data.team.createrUid) {
@@ -55,12 +56,15 @@ Page({
     }
 
     Team.getTeam(teamId).then(_ => {
+      console.log(_.team)
       that.setData({
-        team: _.team
+        team: _.team,
+        currUserUid: _.team.currUserUid
       })
       return Team.getApplications(teamId)
     }).then(_ => {
       // 判断不同的用户角色，在申请区域显示不同的内容（申请者列表、申请表单）
+      console.log(_.applications)
       this.setRole(_.applications)
     }).catch(e => {
       console.log('Promise.then 链式调用中出错了')
@@ -118,7 +122,6 @@ Page({
     //获取申请者填写的数据
     let applyData={
       "application":{
-        "applicantUid": "xd_Alisa",
         "applyInfo": "I want to keep healthy.",
         "contact": [{
           "way": "wechat",

@@ -16,6 +16,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    icon60:'../../public/img/avatar/16.png'
   },
 
   /**
