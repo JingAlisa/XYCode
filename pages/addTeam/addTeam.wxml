@@ -1,5 +1,92 @@
 <!--pages/addTeam/addTeam.wxml-->
-<form bindsubmit='formSubmit'>
+<form>
+<view  class='teamCtn'>
+  <view class='detailCtn'>
+   <view class='sectionTitle'>战队信息</view>
+   <view>
+    <view class="teamCategory inputCtn">
+      <input placeholder='请选择战队类别' />
+      <image src='../../public/img/icon/down.png'/>
+    </view>
+    <view class='teamTitle inputCtn'>
+      <input placeholder='请填写战队名称' />
+    </view>
+    <view class='teamPublicTime inputCtn'>
+      <input placeholder='请选择发布时长' />
+      <image src='../../public/img/icon/down.png'/>
+    </view>
+    <view class='teamApplyNum inputCtn'>
+      <input placeholder='请选择战队最大人数' />
+      <image src='../../public/img/icon/down.png'/>
+    </view>
+    <view class='description inputCtn'>
+      <textarea placeholder='请简单介绍战队信息，以便大家积极加入，不超过200字'/>
+    </view>
+   </view>
+  </view>
+  <view class='contactCtn'>
+    <view  class='sectionTitle'>联系方式(至少填写一项)</view>
+    <!--首先判断用户个人资料中是否保存了联系方式，如果保存了则会出现下面的内容  -->
+     <!-- wx:if="{{hadContact}}" -->
+    <view>       
+      <checkbox class='checkbox' value='yes' /><text class='checkMessage'>使用个人资料中的联系方式</text>
+    </view>
+    <view class='loadContact'>
+      <!--这是我的联系方式  -->
+      <!--wx:if="{{contact.qq!==''}}" -->
+      <!-- <view><checkbox value='{{contact.qq}}' />{{contact.qq}}12345</view>   -->
+      <!--wx:if="{{contact.wechat!==''}}" -->
+      <!-- <view><checkbox value='{{contact.wechat}}' />{{contact.wechat}}3233233er</view>    -->
+      <!-- wx:if="{{contact.phone!==''}}"--->
+      <!-- <view><checkbox value='{{contact.phone}}' />{{contact.phone}}32323323</view> -->
+      <view class='loadQq'>
+        <text>{{contact.qq}}12345</text>
+        <image src='../../public/img/icon/check.png'></image>
+      </view>    
+      <view class='loadWechat'>
+        <text>{{contact.wechat}}3233233er5</text>
+        <image src='../../public/img/icon/check.png'></image>
+      </view>   
+      <view class='loadPhone'>
+        <text>{{contact.phone}}32323323</text>
+        <image src='../../public/img/icon/check.png'></image>
+      </view>   
+    </view>
+    <!--如果不勾选上面的框，或者用户并未保存联系方式，则显示下面的部分  -->
+    <view>
+      <view>
+        <view class='inputCtn'>
+          <input placeholder='请输入qq号码' />
+        </view>
+        <view class='inputCtn'>
+          <input placeholder='请输入微信号码' />
+        </view>
+        <view class='inputCtn'>
+          <input placeholder='请输入电话号码' />
+        </view>
+      </view>
+    </view>
+    <!--如果用户之前已经保存了联系方式，则显示如下  -->
+    <view>
+      <checkbox class='checkbox' value='yes' /><text class='checkMessage'>更新已有的联系方式</text>
+    </view>
+    <!--如果用户之前没有保存联系方式，则显示如下  -->
+    <view>
+      <checkbox class='checkbox' value='yes' /><text class='checkMessage'>保存到个人资料，避免下次再次输入</text>
+    </view>
+  </view>
+  <view class="submitBtn">
+      <button class="" formType="submit">提交</button>
+  </view>
+</view>
+</form>
+
+
+
+
+
+
+ <form bindsubmit='formSubmit'>
   <view class="weui-toptips weui-toptips_warn" wx:if="{{showTips}}">请完善内容</view>
   <view class="weui-cells__title">选择</view>
   <view class="weui-cells weui-cells_after-title">
@@ -82,4 +169,4 @@
       <button class="weui-btn" formType="submit">提交</button>
   </view>
 
-</form>
+</form> 

@@ -3,4 +3,11 @@
   width: 85%;
   margin: 0 auto;
 }
+.searchList::before {
+  content: '';
+  margin-top: 20px;
+  display: block;
+  height: 0;
+  clear: both;
+}
   

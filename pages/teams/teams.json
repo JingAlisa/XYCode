@@ -2,6 +2,7 @@
   "usingComponents": {
     "searchBar": "../../components/searchBar/searchBar",
     "swiper": "../../components/swiper/swiper",
-    "categoryer": "../../components/categoryer/categoryer"
+    "categoryer": "../../components/categoryer/categoryer",
+    "teamList":"../../components/teamList/teamList"
   }
 }

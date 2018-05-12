@@ -1,1 +1,57 @@
 /* pages/addTeam/addTeam.wxss */
+.teamCtn{
+  width: 85%;
+  margin: 0 auto;
+}
+.detailCtn{
+  margin-bottom: 40px;
+}
+.sectionTitle{
+  color: #ff8080;
+  margin-bottom: 10px;
+}
+.inputCtn{
+  border:1px solid #d8d8d8;
+  margin: 20px 0;
+  padding: 8px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.inputCtn input{
+  width: 100%;
+}
+.inputCtn image{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 5px;
+  top:25%;
+  /* z-index: 2; */
+}
+.loadContact>view{
+  overflow: hidden;
+  line-height: 35px;
+}
+.loadContact image{
+  float: right;
+  width: 30px;
+  height: 30px;
+}
+.checkMessage{
+  color: #999;
+  font-size: 11pt;
+}
+.checkbox{
+  width: 20px;
+  height: 20px;
+}
+.submitBtn{
+  margin-top: 20px;
+}
+.submitBtn button{
+  border-radius: 20px;
+  background-color: #ff8080;
+  color: white;
+  letter-spacing: 10px;
+}
