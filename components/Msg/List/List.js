@@ -16,7 +16,8 @@ Component({
       observer: function(newVal, oldVal) {
         
       }
-    }
+    },
+    category: String
   },
 
   /**
