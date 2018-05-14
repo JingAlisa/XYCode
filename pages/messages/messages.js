@@ -41,6 +41,7 @@ Page({
 
   //获取发布消息后的处理
   dealPublicLists:function(msgs){
+    console.log(msgs)
     this.setData({
       msgs_pub: msgs
     })

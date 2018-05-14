@@ -3,7 +3,7 @@
 <navigator url="../../pages/teamDetail/teamDetail?id={{msg.teamId}}" class="weui-cell weui-cell_access msg-item" hover-class="weui-cell_active">
   <view class="weui-cell__bd"> 
     <view style="line-height: 75rpx">
-      <view  style="display: inline-block; vertical-align: middle">{{ msg.applicantUid }}</view>
+      <view  style="display: inline-block; vertical-align: middle">{{ msg.applicantNickName }}</view>
       <view class="weui-badge badge {{ !msg.judgeTime ? '' : (msg.judgment ? 'badge-primary' : 'badge-default') }}">
         {{ !msg.judgeTime ? '审核中' : (msg.judgment ? '已通过' : '未通过') }}
       </view>

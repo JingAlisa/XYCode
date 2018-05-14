@@ -1,1 +1,22 @@
 /* pages/messages/messages.wxss */
+
+.teamContainer {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.team-area {
+  margin-top: 50rpx;
+}
+
+.team-area-title {
+  color: #aaa;
+  font-size: 35rpx;
+}
+
+.team-desc {
+  color: #aaa;
+  font-size: 25rpx;
+  text-align: justify;
+  line-height: 50rpx;
+}

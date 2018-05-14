@@ -41,6 +41,7 @@ Component({
     },
 
     getStatus: function(Msg) {
+      console.log(Msg)
       let msg = Msg
       let status = {
         text: '',

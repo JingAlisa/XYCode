@@ -1,24 +1,90 @@
 /* pages/mine/mine.wxss */
 
+.avatar-bd {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 350rpx;
+  z-index: -999;
+}
+
 .userInfo {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  width: 100%;
+  /*width: 100%;*/
+  /*height: 200rpx;*/
+  margin-top: 200rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
   margin-bottom: 25rpx;
-  padding-top: 25rpx;
+  /*padding-top: 25rpx;*/
   padding-bottom: 25rpx;
   background-color: white;
+  /*border: solid 2px black;*/
+  border-radius: 18rpx;
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
 }
 
 .userInfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  position: relative;
+  top: -100rpx;
+  width: 200rpx;
+  height: 200rpx;
+  /*margin: 20rpx;*/
+  padding: 0;
+  margin: 0;
   border-radius: 50%;
-  box-shadow: rgb(195, 195, 195) 0 0 1rpx 1rpx;
+  box-shadow: #aaa 0rpx 10rpx 150rpx 1rpx;
 }
 
 .userInfo-name {
+  position: relative;
+  top: -30rpx;
   /*color: '#aaa';*/
+  font-weight: 600;
+}
+
+.userInfo-desc {
+  position: relative;
+  top: -15rpx;
+  font-size: 70%;
+  color: #aaa;
+}
+
+.teamsEntries {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  margin-top: 75rpx;
+}
+
+.teamsEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 43%;
+  border-radius: 18rpx;
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.teamsEntry-text {
+  position: relative;
+  top: 75%;
+  font-size: 80%;
+  font-weight: 600;
+}
+
+.teamsPublic {
+  background-image: url(https://hooxz.cn/xiaoyuan/api/v1/images/pub_bd.png);
+  color: #FE7676;
+}
+
+.teamsApply {
+  background-image: url(https://hooxz.cn/xiaoyuan/api/v1/images/apl_bd.png);
+  color: #5F98FD;
 }

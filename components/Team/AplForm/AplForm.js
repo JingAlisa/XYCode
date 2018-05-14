@@ -48,10 +48,25 @@ Component({
         text: this.data.contactText
       }]
 
+      wx.showToast({
+        title: '正在提交...',
+        icon: 'loading',
+        duration: 10000
+      });
+
       Team.addApplication(this.data.teamId, contact, this.data.applyInfo).then(_ => {
         console.log('申请成功')
         console.log(_)
         this.triggerEvent('refreshTeam', {})
+        wx.hideToast();
+      })
+    },
+
+    clearApl: function () {
+      this.setData({
+        contactWayIndex: 0,
+        contactText: '',
+        applyInfo: ''
       })
     }
 
