@@ -13,7 +13,6 @@
         </view>
         <image class='sliderImg' src='{{imgUrls[index+1]}}'></image>
       </navigator>
-      
     </swiper-item>
   </block>
 </swiper>

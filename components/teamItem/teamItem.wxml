@@ -1,6 +1,6 @@
 <!--pages/template/teamItem/teamItem.wxml-->
 <view class='teamItemCtn'>
-<navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}' class="itemCtn">
+ <view class="itemCtn" bindtap="showCard">
     <view class="avatarAndCount">
         <image class="avatarImg" src="{{ (itemData && itemData.createrAvatarUrl) ? itemData.createrAvatarUrl : icon60 }}" /> 
         <view class="countCtn">
@@ -11,5 +11,35 @@
         <view class="weui-media-box__title weui-media-box__title_in-text">{{itemData.title}}</view>
         <view class="weui-media-box__desc">{{itemData.description}}</view>   
     </view>
-</navigator>
+</view> 
+
+<!--显示card  -->
+  <view wx:if="{{showCard}}">
+  <view class='mask' bindtap='hideCard'></view>  
+    <view class='cardCtn'> 
+      <!--title红色的小边  -->
+      <view class='redLine'></view>
+      <view class="cardTitle">{{itemData.title}}</view>
+      <view class='numAndTime'>
+        <text class='applyNum'>招募:{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</text> 
+        <text class='applyTime'>开放时间仅剩：</text>
+      </view>
+      <view class='description'>{{itemData.description}}</view>
+      <view class='avatarAndBtn'>
+        <view  class="createrImg">
+          <image src="{{ (itemData && itemData.createrAvatarUrl) ? itemData.createrAvatarUrl : icon60 }}" /> 
+        </view>
+        <view class='applyAvatars' wx:for="{{itemData.applicants}}" wx:key="{{itemData._id}}">
+          <image wx:if="{{index<2}}" src="{{item.applicantAvatarUrl}}" />
+          <image wx:if="{{index==2}}" src='../../public/img/icon/apostrophe.png' />
+        </view>
+        <view class='detailBtn'>
+          <navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}'>
+            <button>查看详情</button>
+          </navigator>
+        </view>
+      </view>
+    </view>  
+  </view>
+  
 </view>

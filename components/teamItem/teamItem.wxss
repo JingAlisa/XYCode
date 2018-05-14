@@ -36,3 +36,95 @@
 .countTitle{
   margin-right: 10px;
 }
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cardCtn{
+  background-color: #fff;
+  position: fixed;
+  left: 20pt;
+  right: 20pt;
+  top: 50pt;
+  bottom: 100pt;
+  padding: 15pt 15pt 5pt;
+  z-index: 200;
+  border-radius: 10pt;
+  color: #999;
+  font-size: 12pt;
+}
+.redLine{
+  position: absolute;
+  left: 0;
+  top: 15pt;
+  width: 12pt;
+  height: 40pt;
+  background-color: #ff8080;
+}
+.cardTitle{
+  font-size: 18pt;
+  font-weight: bold;
+  line-height: 40pt;
+  color: #000;
+}
+
+.numAndTime{
+  overflow: hidden;
+}
+.numAndTime .applyNum{
+  float: left;
+}
+
+.numAndTime .applyTime{
+  float: right;
+}
+
+.description{
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  margin:20pt 0 15pt;
+  padding: 15pt 0 15pt;
+  height: 90pt;
+}
+.avatarAndBtn{
+  text-align: justify;
+  position: relative;
+}
+.avatarAndBtn>view{
+  display: inline-block;
+}
+.createrImg{
+  padding-right: 10pt;
+  border-right: 1px solid #bbb;
+}
+.createrImg image{
+  
+}
+.applyAvatars{
+  margin-left: 10pt;
+}
+.detailBtn{
+  position: absolute;
+  right: 0;
+}
+.applyAvatars image, .createrImg image{
+  width: 25pt;
+  height: 25pt;
+  border-radius: 50%;
+  box-shadow: 0 0 4pt 2pt #bbb;
+}
+
+.detailBtn button{
+  color: white;
+  font-size: 12pt;
+  line-height: 25pt;
+  border-radius: 20px;
+  background-color: #ff8080; 
+}
