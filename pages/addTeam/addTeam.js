@@ -133,6 +133,7 @@ Page({
         "preserveMaxDays": this.data.saveDays[formData.saveDays],
         "contact": contact
       };
+      console.log(team);
       addTeam(team).then(_ => {
         that.addResult()
       })
@@ -145,6 +146,9 @@ Page({
         icon: 'success',
         duration: 3000
       });
+      wx.switchTab({
+        url: '../teams/teams',
+      })
   },
   
 

@@ -22,7 +22,7 @@
       <view class="cardTitle">{{itemData.title}}</view>
       <view class='numAndTime'>
         <text class='applyNum'>招募:{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</text> 
-        <text class='applyTime'>开放时间仅剩：</text>
+        <text class='applyTime'>剩余：</text>
       </view>
       <view class='description'>{{itemData.description}}</view>
       <view class='avatarAndBtn'>
