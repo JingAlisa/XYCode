@@ -20,6 +20,7 @@ Page({
    * 判断不同的用户角色，在申请区域显示不同的内容（申请者列表、申请表单
    */
   setRole: function (applications) {
+    let that = this
     let currUid = this.data.currUserUid
     let role = 'tourist'
     let apls = []
@@ -27,16 +28,33 @@ Page({
       role = 'creater'
       apls = applications               // 给出全部申请信息
     } else {
-      let i = 0
-      for(;i < applications.length; i++) {
+      let apls_joined = []
+      let apls_curr = []
+      for(let i = 0;i < applications.length; i++) {
+        if(applications[i].judgeTime && applications[i].judgment) {
+          apls_joined.push(applications[i])
+        }
         if(currUid === applications[i].applicantUid) {
           role = 'applicant'
-          apls = [ applications[i] ]    // 仅获取到自己的申请信息
+          applications[i].applicantNickName = applications[i].applicantNickName + '（我）'
+          apls_curr = [ applications[i] ]    // 仅获取到自己的申请信息
           break;
         }
       }
-      if(i === applications.length) {
-        role = 'tourist'
+      if(role === 'applicant') {
+        if(apls_curr[0].judgeTime && apls_curr[0].judgment) { // 已加入，显示全部队员信息
+          let creater = {
+            applicantAvatarUrl: that.data.team.createrAvatarUrl,
+            applicantNickName: that.data.team.createrNickName,
+            applyInfo: '#我是队长#',
+            contact: that.data.team.contact,
+            judgeTime: '19970101',
+            judgment: true
+          }
+          apls = [creater].concat(apls_joined)
+        } else {
+          apls = apls_curr
+        }
       }
     }
     

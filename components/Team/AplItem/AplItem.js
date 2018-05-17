@@ -21,7 +21,18 @@ Component({
    * 组件的初始数据
    */
   data: {
-    
+
+  },
+
+  ready: function () {
+    let that = this
+    let contacts = that.data.application.contact
+    for(let i = 0; i < contacts.length; i++) {
+      let key = contacts[i].way
+      that.setData({
+        [key]: contacts[i].text
+      })
+    }
   },
 
   /**
@@ -38,10 +49,10 @@ Component({
     openJudgeDialog: function () {
       let that = this
       wx.showModal({
-        title: '弹窗标题',
-        content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
-        confirmText: "主操作",
-        cancelText: "辅助操作",
+        title: that.data.application.applicantNickName,
+        content: that.data.application.applyInfo,
+        confirmText: "同意",
+        cancelText: "拒绝",
         success: function (res) {
             console.log(res);
             if (res.confirm) {
@@ -56,16 +67,37 @@ Component({
     },
 
     copeWechat: function () {
-      wx.showToast({
-        title: '已复制到剪切板',
-        icon: 'success',
-        duration: 2000
+      let wechat = this.data.wechat
+      wx.setClipboardData({
+        data: wechat,
+        success: function(res) {
+          wx.showToast({
+            title: '已复制到剪切板',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      })
+    },
+
+    copeQQ: function () {
+      let qq = this.data.qq
+      wx.setClipboardData({
+        data: qq,
+        success: function(res) {
+          wx.showToast({
+            title: '已复制到剪切板',
+            icon: 'success',
+            duration: 2000
+          })
+        }
       })
     },
 
     makePhoneCall: function () {
+      let that = this
       wx.makePhoneCall({
-        phoneNumber: '13119118432' //仅为示例，并非真实的电话号码
+        phoneNumber: that.data.phone //仅为示例，并非真实的电话号码
       })
     }
   }

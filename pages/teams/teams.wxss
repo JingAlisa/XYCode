@@ -1,6 +1,13 @@
 /* pages/teams/teams.wxss */
 .teamsCtn{
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
+}
+.searchList::before {
+  content: '';
+  margin-top: 20px;
+  display: block;
+  height: 0;
+  clear: both;
 }
   

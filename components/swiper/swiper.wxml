@@ -8,12 +8,11 @@
       <navigator url='../../pages/teamDetail/teamDetail?id={{item._id}}'>
         <view class='sliderContent'>
           <view>{{item.title}}</view>
-          <view>{{item.description}}</view>
+          <view class='itemDescription'>{{item.description}}</view>
           <view>{{item.slogan}}</view>
         </view>
         <image class='sliderImg' src='{{imgUrls[index+1]}}'></image>
       </navigator>
-      
     </swiper-item>
   </block>
 </swiper>

@@ -10,7 +10,9 @@ Page({
     listData: [],
     pageIndex: 1,
     pageSize: 8,
-    result: ''
+    result: '',
+    searchShow:false,
+    searchData:[]
   },
 
   /**
@@ -96,6 +98,21 @@ Page({
     console.log(this.data.listData);
 
 
+  },
+  searchResult:function(e){
+    console.log(e.detail.searchData.teams);
+    this.setData({
+      searchShow:true,
+      searchData:e.detail.searchData.teams,
+      result:'没有更多了'
+    })
+  },
+  clearSearch:function(e){
+    this.setData({
+      searchShow:false,
+      result:'',
+      searchData:[]
+    })
   },
 
   /**
