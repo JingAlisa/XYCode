@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/addTeam/addTeam",
     "pages/teams/teams",
     "pages/messages/messages",
     "pages/teamDetail/teamDetail",
+    "pages/addTeam/addTeam",
     "pages/mine/mine"
   ],
   "window": {

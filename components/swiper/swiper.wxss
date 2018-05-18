@@ -1,7 +1,8 @@
 .sliderContainer{
   margin:20px auto;
   border-radius: 10px;
-  box-shadow: 2px 5px 12px 10px #bbb;  
+  /* box-shadow: 2px 5px 12px 10px #bbb;   */
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
   background-color: #bbb;
 }
 .sliderImg{

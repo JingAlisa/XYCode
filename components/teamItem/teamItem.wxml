@@ -3,9 +3,9 @@
  <view class="itemCtn" bindtap="showCard">
     <view class="avatarAndCount">
         <image class="avatarImg" src="{{ (itemData && itemData.createrAvatarUrl) ? itemData.createrAvatarUrl : icon60 }}" /> 
-        <view class="countCtn">
+        <!-- <view class="countCtn">
             <view class=""><span class="countTitle">招募:</span>{{itemData.memberCount}}/{{itemData.memberMaxNumber}}</view>
-        </view>
+        </view> -->
     </view>
     <view class="itemDetail">
         <view class="weui-media-box__title weui-media-box__title_in-text">{{itemData.title}}</view>

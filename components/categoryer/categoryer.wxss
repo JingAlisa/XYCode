@@ -15,10 +15,11 @@
   padding:2px;
   margin:0 8px;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px 5px #999;
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
 }
 .activeTabItem{
   background-color: #ff8080;
+  box-shadow: #ff8080 0rpx 10rpx 30rpx 0rpx;
 }
 .teamListCtn{
   margin-top:20px;

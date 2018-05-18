@@ -1,31 +1,35 @@
 /* pages/template/teamItem/teamItem.wxss */
 @import '../../public/css/weui.wxss';
 .teamItemCtn{
+
 }
 .itemCtn{
   display: flex;
   flex-direction: row;
   padding:10px;
   margin:0 auto 20px;
-  border:1px solid #999;
   border-radius: 10px;
-  box-shadow: 3px 3px 6px 5px #bbb;
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
 }
 .itemCtn .avatarAndCount{
   flex: 1;
 }
 .itemCtn .itemDetail{
-  flex: 3;
+  flex: 4;
+  overflow: hidden;
 }
 .avatarAndCount{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    /* display: flex;
+  flex-direction: column; 
+   justify-content: space-between;   */
+   padding:0 10rpx;
 }
 .avatarImg{
-  width: 40pt;
-  height: 40pt;
-  flex: 2;
+  width: 30pt;
+  height: 30pt;
+  vertical-align: middle;
+  border-radius: 50%;
+  box-shadow: #aaa 0rpx 10rpx 40rpx 1rpx; 
 }
 .countCtn{
   font-size: 10px;
@@ -64,15 +68,16 @@
   position: absolute;
   left: 0;
   top: 15pt;
-  width: 12pt;
+  width: 25rpx;
   height: 40pt;
   background-color: #ff8080;
 }
 .cardTitle{
-  font-size: 18pt;
-  font-weight: bold;
+  font-size: 45rpx;
   line-height: 40pt;
   color: #000;
+  height: 40pt;
+  overflow: hidden;
 }
 
 .numAndTime{
@@ -87,11 +92,12 @@
 }
 
 .description{
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #bbb;
-  margin:20pt 0 15pt;
-  padding: 15pt 0 15pt;
-  height: 90pt;
+  /* border-top: 0.1px solid #bbb; */
+  border-top: solid 1rpx #f5f5f5;
+  border-bottom: solid 1rpx #f5f5f5;
+  margin:10pt 0 15pt;
+  padding: 10pt 0 15pt;
+  height: 110pt;
 }
 .avatarAndBtn{
   text-align: justify;
@@ -102,13 +108,12 @@
 }
 .createrImg{
   padding-right: 10pt;
-  border-right: 1px solid #bbb;
-}
-.createrImg image{
   
 }
+
 .applyAvatars{
-  margin-left: 10pt;
+  border-left: 1px solid #bbb;
+  padding-left: 10pt;
 }
 .detailBtn{
   position: absolute;
@@ -118,7 +123,7 @@
   width: 25pt;
   height: 25pt;
   border-radius: 50%;
-  box-shadow: 0 0 4pt 2pt #bbb;
+  box-shadow: #aaa 0rpx 10rpx 30rpx 0rpx; 
 }
 
 .detailBtn button{
@@ -127,4 +132,5 @@
   line-height: 25pt;
   border-radius: 20px;
   background-color: #ff8080; 
+  box-shadow: #ff8080 0rpx 10rpx 30rpx 0rpx;
 }
