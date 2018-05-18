@@ -4,7 +4,7 @@
   <view class="contact-indicator">
     <text>{{ contactWayTexts[contactWayIndex] }}: </text>
   </view>
-  <input class="contact-input" bindblur="bindContactTextChange" placeholder="请输入联系方式" name="contactText" />
+  <input class="contact-input" bindblur="bindContactTextChange" placeholder="请输入联系方式" name="contactText" value="{{contactTextExisted}}" />
   <picker class="contact-picker" bindchange="bindContactWaysChange" value="{{ contactWayIndex }}" range="{{ contactWayTexts }}">
     <view class="contact-picker-img" />
   </picker>

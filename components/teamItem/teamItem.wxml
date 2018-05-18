@@ -29,10 +29,13 @@
         <view  class="createrImg">
           <image src="{{ (itemData && itemData.createrAvatarUrl) ? itemData.createrAvatarUrl : icon60 }}" /> 
         </view>
-        <view class='applyAvatars' wx:for="{{itemData.applicants}}" wx:key="{{itemData._id}}">
-          <image wx:if="{{index<2}}" src="{{item.applicantAvatarUrl}}" />
-          <image wx:if="{{index==2}}" src='../../public/img/icon/apostrophe.png' />
+        <view class='applyAvatarsCtn'>
+          <view class='applyAvatars' wx:for="{{itemData.applicants}}" wx:key="{{itemData._id}}">
+            <image wx:if="{{index<2}}" src="{{item.applicantAvatarUrl}}" />
+            <image wx:if="{{index==2}}" src='../../public/img/icon/apostrophe.png' />
+          </view>
         </view>
+        
         <view class='detailBtn'>
           <navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}'>
             <button>查看详情</button>

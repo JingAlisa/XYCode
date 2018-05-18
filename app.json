@@ -4,7 +4,9 @@
     "pages/messages/messages",
     "pages/teamDetail/teamDetail",
     "pages/addTeam/addTeam",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/mineApply/mineApply",
+    "pages/minePublic/minePublic"
   ],
   "window": {
     "backgroundTextStyle": "light",

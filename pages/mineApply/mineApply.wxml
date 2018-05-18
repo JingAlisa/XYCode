@@ -1,0 +1,2 @@
+<!--pages/mineApply/mineApply.wxml-->
+<teamList listData="{{applyData}}" result="{{result}}"></teamList>

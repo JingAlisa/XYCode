@@ -27,7 +27,7 @@
 .avatarImg{
   width: 30pt;
   height: 30pt;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   border-radius: 50%;
   box-shadow: #aaa 0rpx 10rpx 40rpx 1rpx; 
 }
@@ -103,7 +103,7 @@
   text-align: justify;
   position: relative;
 }
-.avatarAndBtn>view{
+.avatarAndBtn view{
   display: inline-block;
 }
 .createrImg{
@@ -111,10 +111,14 @@
   
 }
 
-.applyAvatars{
+.applyAvatarsCtn{
   border-left: 1px solid #bbb;
   padding-left: 10pt;
 }
+.applyAvatars:not(:nth-last-child(1)){
+  padding-right: 5pt;
+}
+
 .detailBtn{
   position: absolute;
   right: 0;
@@ -123,7 +127,7 @@
   width: 25pt;
   height: 25pt;
   border-radius: 50%;
-  box-shadow: #aaa 0rpx 10rpx 30rpx 0rpx; 
+  box-shadow: #aaa 0rpx 10rpx 40rpx 0rpx; 
 }
 
 .detailBtn button{

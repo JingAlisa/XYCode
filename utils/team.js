@@ -66,6 +66,20 @@ function getApplications (teamId) {
 	})
 }
 
+function getApplyList(uid) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams/" + uid + "/apply";
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if (!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
+
+
 function addApplication (teamId, contact, applyInfo) {
   let url = app.globalData.g_API +"/xiaoyuan/api/v1/team/" + teamId +"/application";
   let application = {
@@ -105,6 +119,7 @@ module.exports = {
   getSearch,
   getTeam,
   addTeam,
+  getApplyList,
   getApplications,
   addApplication,
   addJudgment

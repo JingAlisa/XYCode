@@ -13,12 +13,12 @@
             class="apl-info-btn {{ application.judgeTime ? (application.judgment === true && from === 'team' ? 'apl-info-btn-hidden' : 'apl-info-btn-default') : ''  }}" 
             bindtap="{{ isCreater ? 'openJudgeDialog' : '' }}"
         >
-            {{ application.judgeTime ? (application.judgment === true ? '已通过' : '已拒绝') : '审核中'  }}
+            {{ application.judgeTime ? (application.judgment === true ? '已通过' : '已拒绝') : (isCreater ? '审核' : '审核中') }}
         </button>
         <view class="apl-contact" wx:if="{{ from === 'team' && application.judgeTime && application.judgment }}">
-            <view class="apl-contact-item apl-contact-wechat" bindtap="copeWechat"></view>
-            <view class="apl-contact-item apl-contact-qq" bindtap="copeWechat"></view>
-            <view class="apl-contact-item apl-contact-phone" bindtap="makePhoneCall"></view>
+            <view class="apl-contact-item apl-contact-wechat" bindtap="copeWechat" wx:if="{{wechat}}"></view>
+            <view class="apl-contact-item apl-contact-qq" bindtap="copeQQ" wx:if="{{qq}}"></view>
+            <view class="apl-contact-item apl-contact-phone" bindtap="makePhoneCall" wx:if="{{phone}}"></view>
         </view>
     </view>
     <view class="apl-desc">{{ application.applyInfo }}</view>
