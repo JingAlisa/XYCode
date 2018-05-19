@@ -26,7 +26,10 @@ Page({
     // 已有联系方式
     qq:'',
     wechat:'',
-    phone:''
+    phone:'',
+
+    // textarea框输入的个数
+    textareaLength:''
   
   },
 
@@ -164,6 +167,13 @@ Page({
       wx.reLaunch({
         url: '../teams/teams'
       })
+  },
+
+  // textarea根据输入的个数变化
+  changeTextareaNum:function(e){
+    this.setData({
+      textareaLength: e.detail.value.length
+    })
   },
   
 

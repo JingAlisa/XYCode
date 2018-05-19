@@ -8,7 +8,18 @@ Component({
   properties: {
     itemData:{
       type:Object,
-      value:{}
+      value:{},
+      observer:function(newVal,oldVal){
+        var that=this;
+        var createTime=new Date(newVal.createTime).getTime();
+        var nowTime=new Date().getTime();
+        let preserveMaxDays = newVal.preserveMaxDays*24;
+        // 获取剩余天数
+        var leftTime=((preserveMaxDays-(nowTime-createTime)/3600000)/24).toFixed(2);
+        that.setData({
+          leftTime:leftTime
+        })
+      }
     }
   },
 
@@ -17,7 +28,8 @@ Component({
    */
   data: {
     icon60:'../../public/img/avatar/16.png',
-    showCard:false
+    showCard:false,
+    leftTime:''
   },
 
   /**
@@ -28,7 +40,6 @@ Component({
       this.setData({
         showCard:true
       })
-      console.log(e);
     },
     hideCard:function(e){
       this.setData({
@@ -41,7 +52,7 @@ Component({
         showCard: false
       });
       wx.navigateTo({
-        url: '../../pages/teamDetail/teamDetail?id=' + that.properties.itemData._id
+        url: '../../pages/teamDetail/teamDetail?id=' + that.properties.itemData._id + "&leftTime=" + that.data.leftTime
       })
     },
     stopScroll:function(){

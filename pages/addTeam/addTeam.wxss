@@ -32,7 +32,7 @@
 
 .submitBtn{
   width:90%;
-  margin: 20px auto 0;
+  margin: 20px auto 5px;
 }
 .submitBtn button{
   border-radius: 20px;

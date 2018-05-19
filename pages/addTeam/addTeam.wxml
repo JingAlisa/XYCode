@@ -48,8 +48,8 @@
             </view>
         </view>
         <view class='description inputCtn'>
-          <textarea class="weui-textarea" name="description" placeholder="请简单介绍战队信息，以便大家积极加入，不超过200字" style="height: 3.3em" />
-          <view class="weui-textarea-counter">0/200</view>
+          <textarea class="weui-textarea" name="description" placeholder="请简单介绍战队信息，以便大家积极加入，不超过200字" style="height: 3.3em" maxlength='200' bindinput='changeTextareaNum'/>
+          <view class="weui-textarea-counter">{{textareaLength}}/200</view>
         </view>
     </view>
   </view>
