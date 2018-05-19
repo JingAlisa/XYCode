@@ -1,15 +1,25 @@
 <!--Components/Msg/Item/Item.wxml-->
 
-<navigator url="../../pages/teamDetail/teamDetail?id={{msg.teamId}}" class="weui-cell weui-cell_access msg-item" hover-class="weui-cell_active">
-  <view class="weui-cell__bd"> 
-    <view style="line-height: 75rpx">
-      <view  style="display: inline-block; vertical-align: middle">{{ msg.applicantNickName }}</view>
-      <view class="weui-badge badge {{ !msg.judgeTime ? '' : (msg.judgment ? 'badge-primary' : 'badge-default') }}">
-        {{ !msg.judgeTime ? '审核中' : (msg.judgment ? '已通过' : '未通过') }}
-      </view>
+<view class="team-apl">
+    <view class="apl-header">
+        <view class="apl-info">
+            <image class="apl-info-avatar" src="{{ application.applicantAvatarUrl }}" />
+            <view class="apl-info-name">
+                <text>{{ application.applicantNickName }}</text>
+                <text class="apl-info-name-append">申请加入「{{application.team.title}}」</text>
+            </view>
+        </view>
+        <button 
+            class="apl-info-btn {{ application.judgeTime ? (application.judgment === true && from === 'team' ? 'apl-info-btn-hidden' : 'apl-info-btn-default') : ''  }}" 
+            bindtap="{{ (application.isCreater && !application.judgeTime) ? 'openJudgeDialog' : 'openTeam' }}"
+        >
+            {{ application.judgeTime ? (application.judgment === true ? '已通过' : '已拒绝') : (application.isCreater ? '审核' : '审核中') }}
+        </button>
+        <view class="apl-contact" wx:if="{{ from === 'team' && application.judgeTime && application.judgment }}">
+            <view class="apl-contact-item apl-contact-wechat" bindtap="copeWechat" wx:if="{{wechat}}"></view>
+            <view class="apl-contact-item apl-contact-qq" bindtap="copeQQ" wx:if="{{qq}}"></view>
+            <view class="apl-contact-item apl-contact-phone" bindtap="makePhoneCall" wx:if="{{phone}}"></view>
+        </view>
     </view>
-    
-    <view style="font-size: 13px;color: #888888;">申请信息：{{ msg.applyInfo }}</view>
-  </view>
-  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-</navigator>
+    <view class="apl-desc">{{ application.applyInfo }}</view>
+</view>

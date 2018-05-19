@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "msg-item": "../../Team/AplItem/AplItem"
+    "msg-item": "../Item/Item"
   }
 }

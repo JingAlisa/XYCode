@@ -1,6 +1,7 @@
 const app = getApp();
 const { Request, ajax } = require("./http.js");
 
+// uid已失效
 function getMsgs (role, userId) {
   let url = app.globalData.g_API + "/xiaoyuan/api/v1/messages?role=" + role
   return new Promise((resolve, reject) => {
