@@ -66,8 +66,8 @@ function getApplications (teamId) {
 	})
 }
 
-function getApplyList(uid) {
-  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams/" + uid + "/apply";
+function getApplyList(uid,pageIndex,pageSize) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams?role=applicant&uid=" + uid+"&pageIndex="+pageIndex+"&pageSize="+pageSize;
   return new Promise((resolve, reject) => {
     ajax(url).then((res) => {
       if (!res.code) {
@@ -79,6 +79,18 @@ function getApplyList(uid) {
   })
 }
 
+function getPublicList(uid, pageIndex, pageSize) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams?role=creater&uid=" + uid + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if (!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
 
 function addApplication (teamId, contact, applyInfo) {
   let url = app.globalData.g_API +"/xiaoyuan/api/v1/team/" + teamId +"/application";
@@ -120,6 +132,7 @@ module.exports = {
   getTeam,
   addTeam,
   getApplyList,
+  getPublicList,
   getApplications,
   addApplication,
   addJudgment

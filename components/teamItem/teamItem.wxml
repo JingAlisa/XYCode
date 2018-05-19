@@ -14,8 +14,8 @@
 </view> 
 
 <!--显示card  -->
-  <view wx:if="{{showCard}}">
-  <view class='mask' bindtap='hideCard'></view>  
+  <view wx:if="{{showCard}}" class='cardAndMask' catchtouchmove='stopScroll'>
+    <view class='mask' bindtap='hideCard'></view>  
     <view class='cardCtn'> 
       <!--title红色的小边  -->
       <view class='redLine'></view>
@@ -37,9 +37,7 @@
         </view>
         
         <view class='detailBtn'>
-          <navigator url='../../pages/teamDetail/teamDetail?id={{itemData._id}}'>
-            <button>查看详情</button>
-          </navigator>
+          <button bindtap='jumpToteamDetail'>查看详情</button>
         </view>
       </view>
     </view>  

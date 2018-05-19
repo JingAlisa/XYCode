@@ -1,1 +1,5 @@
 /* pages/minePublic/minePublic.wxss */
+.publicCtn{
+  width: 90%;
+  margin:20px auto 5px;
+}

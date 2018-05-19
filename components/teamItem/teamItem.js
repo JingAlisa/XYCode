@@ -28,11 +28,23 @@ Component({
       this.setData({
         showCard:true
       })
+      console.log(e);
     },
     hideCard:function(e){
       this.setData({
         showCard: false
       })
+    },
+    jumpToteamDetail:function(){
+      let that=this;
+      this.setData({
+        showCard: false
+      });
+      wx.navigateTo({
+        url: '../../pages/teamDetail/teamDetail?id=' + that.properties.itemData._id
+      })
+    },
+    stopScroll:function(){
     }
   }
 })

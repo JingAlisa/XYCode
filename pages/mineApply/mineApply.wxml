@@ -1,2 +1,4 @@
 <!--pages/mineApply/mineApply.wxml-->
-<teamList listData="{{applyData}}" result="{{result}}"></teamList>
+<view class='applyCtn'>
+  <teamList listData="{{applyData}}" result="{{result}}"/>
+</view>

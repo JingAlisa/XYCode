@@ -10,10 +10,10 @@ Component({
   },
   data: {
     imgUrls: [
-      '../../public/img/logo.png',
-      '../../public/img/study.png',
-      '../../public/img/life.jpg',
-      '../../public/img/friend.png'
+      '../../public/img/swiper/first.png',
+      '../../public/img/swiper/second.png',
+      '../../public/img/swiper/third.png',
+      '../../public/img/swiper/forth.png'
     ],
     indicatorDots: true,
     autoplay: true,

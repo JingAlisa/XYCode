@@ -9,7 +9,30 @@ Component({
     listData:{
       type:Array,
       value:[],
-      observe:function(newVal,oldVal){}
+      observer:function(newVal,oldVal){
+        console.log('123');
+        let that=this;
+        let category='';
+        switch (that.data.activeIndex) {
+          case '0':
+            category = 'all';
+            break;
+          case '1':
+            category = 'study';
+            break;
+          case '2':
+            category = 'life';
+            break;
+          case '3':
+            category = 'friends';
+            break;
+        }
+        var categoryData = util.filterData(newVal, category);
+        that.setData({
+          categoryData: categoryData
+        })
+        console.log(that.data.categoryData);
+      }
     },
     result:{
       type:String,
