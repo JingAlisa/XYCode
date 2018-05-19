@@ -57,7 +57,7 @@
 .redLine{
   position: absolute;
   left: 0;
-  width: 12pt;
+  width: 25rpx;
   height: 30pt;
   background-color: #ff8080;
 }

@@ -43,6 +43,7 @@
 }
 
 .info {
+  position: relative;
   margin-top: 25rpx;
   background-color: white;
   border-radius: 20rpx;
@@ -53,6 +54,11 @@
   margin: 0;
   padding: 25rpx;
 }
+.info .textareaNum{
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+} 
 
 .btn-area {
   display: flex;

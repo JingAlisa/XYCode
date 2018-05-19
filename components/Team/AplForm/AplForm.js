@@ -23,7 +23,8 @@ Component({
     contactText: '',
     contactTextExisted: '',
     applyInfo: '',
-    contacts: []        // 用户之前填写过的联系方式，在服务端获取
+    contacts: [],        // 用户之前填写过的联系方式，在服务端获取
+    textareaLength:'0'
   },
 
   ready: function () {
@@ -91,6 +92,7 @@ Component({
         icon: 'loading',
         duration: 10000
       });
+      console.log(this.data.applyInfo);
 
       Team.addApplication(this.data.teamId, contact, this.data.applyInfo).then(_ => {
         console.log('申请成功')
@@ -105,6 +107,13 @@ Component({
         contactWayIndex: 0,
         contactText: '',
         applyInfo: ''
+      })
+    },
+
+    // textarea根据输入的个数变化
+    changeTextareaNum: function (e) {
+      this.setData({
+        textareaLength: e.detail.value.length
       })
     }
 

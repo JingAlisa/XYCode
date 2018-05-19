@@ -15,7 +15,7 @@ Component({
         var nowTime=new Date().getTime();
         let preserveMaxDays = newVal.preserveMaxDays*24;
         // 获取剩余天数
-        var leftTime=((preserveMaxDays-(nowTime-createTime)/3600000)/24).toFixed(2);
+        var leftTime=((preserveMaxDays-(nowTime-createTime)/3600000)/24).toFixed(1);
         that.setData({
           leftTime:leftTime
         })

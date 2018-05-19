@@ -14,7 +14,7 @@
 
       <view class="team-info">
         <view class="team-info-text">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
-        <view class="team-info-text">剩余 3.2 天</view>
+        <view class="team-info-text">剩余 {{leftTime}} 天</view>
       </view>
 
       <view class="team-divider"></view>

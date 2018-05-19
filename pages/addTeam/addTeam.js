@@ -29,7 +29,7 @@ Page({
     phone:'',
 
     // textarea框输入的个数
-    textareaLength:''
+    textareaLength:'0'
   
   },
 

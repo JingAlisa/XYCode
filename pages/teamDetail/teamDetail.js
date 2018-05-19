@@ -13,7 +13,8 @@ Page({
     team: {},
     currUserUid: '',
     applications: [],
-    aplArea: 'loading'
+    aplArea: 'loading',
+    leftTime:''
   },
 
   /**
@@ -95,10 +96,12 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    //从上一个模板中获取teamId
+    //从上一个模板中获取teamId和剩余时间
     let teamId = options.id;
+    let leftTime=options.leftTime;
     this.setData({
-      teamId:teamId
+      teamId: teamId,
+      leftTime: leftTime
     })
 
     this.loadTeam(teamId)

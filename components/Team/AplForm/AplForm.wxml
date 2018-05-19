@@ -11,7 +11,8 @@
 </view>
 
 <view class="info">
-  <textarea bindinput="bindApplyInfoChange" placeholder="请大胆的展示自己，增加申请成功几率，不超过500字" name="applyInfo" maxlength="{{500}}" />
+  <textarea bindinput="bindApplyInfoChange" placeholder="请大胆的展示自己，增加申请成功几率，不超过500字" name="applyInfo" maxlength="500" bindinput='changeTextareaNum' />
+  <view class='textareaNum'>{{textareaLength}}/500</view>
 </view>
 
 <view class="btn-area">
