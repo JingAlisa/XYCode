@@ -1,10 +1,6 @@
 <!--components/Team/AplList/AplList.wxml-->
-<view class="weui-panel">
-  <view class="weui-panel__hd">申请者列表 - 作为{{ aplArea === 'all' ? '创建者' : '申请者' }}</view>
-  <view class="weui-panel__bd">
-    <block wx:for="{{ applications }}" wx:for-item="application" wx:key="{{ application._id }}">
-      <apl-item bind:judgmentAdded="refreshTeam" application="{{ application }}" isCreater="{{ isCreater }}" />
-    </block>
-  </view>
-</view>
+
+<block wx:for="{{ applications }}" wx:for-item="application" wx:key="{{ application._id }}">
+  <apl-item bind:judgmentAdded="refreshTeam" application="{{ application }}" isCreater="{{ isCreater }}" from="team" />
+</block>
 

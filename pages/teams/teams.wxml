@@ -1,7 +1,10 @@
 <!--pages/teams/teams.wxml-->
 <view class='teamsCtn'>
-  <searchBar class="searchBarCtn"/>
-  <swiper hotData="{{hotData}}"></swiper>
-  <categoryer class="categoryCtn" listData="{{listData}}" result="{{result}}"/>
+  <searchBar class="searchBarCtn" bind:resultShow="searchResult" bind:clearSearch="clearSearch"/>
+  <view wx:if="{{!searchShow}}">
+    <swiper hotData="{{hotData}}"></swiper>
+    <categoryer class="categoryCtn" listData="{{listData}}" result="{{result}}"/>
+  </view>
+  <teamList class="searchList" wx:if="{{searchShow}}" listData="{{searchData}}" result="{{result}}"/>
 </view>
 

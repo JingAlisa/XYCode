@@ -10,7 +10,9 @@ Page({
     listData: [],
     pageIndex: 1,
     pageSize: 8,
-    result: ''
+    result: '',
+    searchShow:false,
+    searchData:[]
   },
 
   /**
@@ -46,15 +48,15 @@ Page({
         switch (dataArr[key].category) {
           case "study":
             hotData[0] = dataArr[key].team;
-            hotData[0].slogan = '众人拾柴火焰高，来来来再添把火'
+            hotData[0].class = '爱学习'
             break;
           case "life":
             hotData[1] = dataArr[key].team;
-            hotData[1].slogan = '别犹豫了，再不疯狂就老了'
+            hotData[1].class = '爱生活'
             break;
           case "friends":
             hotData[2] = dataArr[key].team;
-            hotData[2].slogan = '来不及解释了，快上车'
+            hotData[2].class = '爱社交'
             break;
           default:
             break;
@@ -96,6 +98,21 @@ Page({
     console.log(this.data.listData);
 
 
+  },
+  searchResult:function(e){
+    console.log(e.detail.searchData.teams);
+    this.setData({
+      searchShow:true,
+      searchData:e.detail.searchData.teams,
+      result:'没有更多了'
+    })
+  },
+  clearSearch:function(e){
+    this.setData({
+      searchShow:false,
+      result:'',
+      searchData:[]
+    })
   },
 
   /**

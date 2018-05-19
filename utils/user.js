@@ -19,6 +19,23 @@ function getUserInfo () {
 	})
 }
 
+// 获取用户信息
+function getUserContact(session_3rd) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/user/userinfo?session_3rd=" + session_3rd;
+  return new Promise((resolve, reject) => {
+    login().then(_ => {
+      ajax(url).then((res) => {
+        if (!res.code) {
+          resolve(res.data)
+        } else {
+          reject(res)
+        }
+      })
+    })
+
+  })
+}
+
 // 更新用户信息
 function setUserInfo (userInfo) {
 	let url = app.globalData.g_API + "/xiaoyuan/api/v1/user/userinfo";
@@ -33,9 +50,8 @@ function setUserInfo (userInfo) {
 	})
 }
 
-// 更新用户信息
-
 module.exports = {
   getUserInfo,
-  setUserInfo
+  setUserInfo,
+  getUserContact
 }

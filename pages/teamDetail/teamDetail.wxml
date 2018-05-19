@@ -4,44 +4,56 @@
 
 <view class="page">
   <view class="page__bd">
-    <view class="weui-panel">
-        <view class="weui-panel__hd">战队信息</view>
-        <view class="weui-panel__bd">
-            <view class="weui-media-box weui-media-box_text">
-                <view class="weui-media-box__title weui-media-box__title_in-text">{{ team.title }}</view>
-                <view class="weui-media-box__desc">{{ team.description }}</view>
-                <view class="weui-media-box__info teamInfo">
-                    <view class="weui-media-box__info__meta">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
-                    <view class="weui-media-box__info__meta">剩余 3.2 天</view>
-                </view>
-            </view>
-            <view class='userInfo'>
-                <image class="userInfo-avatar" src="{{ team.createrAvatarUrl }}" background-size="cover"></image>
-                <text class='userInfo-name'>{{ team.createrNickName }}</text>
-            </view>
+
+    <view class="teamContainer">
+
+      <view class="team-header">
+        <view class="team-header-border"></view>
+        <view class="team-title">{{ team.title }}</view>
+      </view>
+
+      <view class="team-info">
+        <view class="team-info-text">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
+        <view class="team-info-text">剩余 {{leftTime}} 天</view>
+      </view>
+
+      <view class="team-divider"></view>
+
+      <view class="team-area">
+        <view class="team-area-title">战队介绍</view>
+        <view class="team-area-content team-desc">
+          {{team.description}}
         </view>
-    </view>
+      </view>
 
-    <!-- 若为创建者或申请者 -->
-    <apl-list 
-      wx:if="{{ aplArea === 'all' || aplArea === 'self' }}"
-      bind:refreshTeam="loadTeam" 
-      applications="{{ applications }}" 
-      isCreater="{{ aplArea === 'all' ? true : false }}"
-      aplArea="{{ aplArea }}" 
-    />
-    <!-- 否则，若为游客 -->
-    <apl-form 
-      wx:elif="{{ aplArea === 'form' }}"
-      bind:refreshTeam="loadTeam" 
-      teamId="{{ team._id }}" 
-    />
-    <!-- 否则，显示loading -->
-    <view class="weui-loadmore" wx:else>
-      <view class="weui-loading"></view>
-      <view class="weui-loadmore__tips">正在加载</view>
-    </view>
+      <view class="team-divider"></view>
 
+      <view class="team-area">
+        <view class="team-area-title">{{ aplArea === 'loading' ? '' : ( aplArea === 'form' ? '申请表单' : '战队成员') }}</view>
+        <view class="team-area-content team-desc">
+          <!-- 若为创建者或申请者 -->
+          <apl-list 
+            wx:if="{{ aplArea === 'all' || aplArea === 'self' }}"
+            bind:refreshTeam="loadTeam" 
+            applications="{{ applications }}" 
+            isCreater="{{ aplArea === 'all' ? true : false }}"
+            aplArea="{{ aplArea }}" 
+          />
+          <!-- 否则，若为游客 -->
+          <apl-form 
+            wx:elif="{{ aplArea === 'form' }}"
+            bind:refreshTeam="loadTeam" 
+            teamId="{{ team._id }}" 
+          />
+          <!-- 否则，显示loading -->
+          <view class="weui-loadmore" wx:else>
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+        </view>
+      </view>
+    
+    </view>
 
   </view>
 </view>

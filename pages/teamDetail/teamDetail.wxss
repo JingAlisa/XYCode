@@ -1,5 +1,73 @@
 /* pages/teamDetail/teamDetail.wxss */
 
+.teamContainer {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.team-header {
+  margin-top: 25rpx;
+}
+
+.team-header-border {
+  position: relative;
+  left: -50rpx;
+  width: 1rpx;
+  height: 75rpx;
+  border-left: solid 20rpx #ff8080;
+  float: left;
+}
+
+.team-title {
+  font-size: 45rpx;
+  line-height: 75rpx;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-top: 25rpx;
+}
+
+.team-info-text {
+  font-size: 25rpx;
+  color: #aaa;
+}
+
+.team-divider {
+  width: 90%;
+  height: 1rpx;
+  border-top: solid 1rpx #f5f5f5;
+  position: relative;
+  left: 5%;
+  margin: 40rpx 0;
+}
+
+.team-area {
+  
+}
+
+.team-area-title {
+  color: #aaa;
+  font-size: 35rpx;
+}
+
+.team-desc {
+  color: #aaa;
+  font-size: 25rpx;
+  text-align: justify;
+  line-height: 50rpx;
+}
+
+/*=============================================================
+*
+*  old
+*
+**=============================================================
+*/
+
 .teamInfo {
   display: flex;
   flex-direction: row;

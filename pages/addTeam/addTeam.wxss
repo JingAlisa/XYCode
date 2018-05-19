@@ -1,1 +1,70 @@
 /* pages/addTeam/addTeam.wxss */
+.teamCtn{
+  width: 85%;
+  margin: 0 auto;
+}
+.detailCtn{
+  margin-bottom: 40px;
+}
+.sectionTitle{
+  color: #ff8080;
+  margin-bottom: 10px;
+}
+.inputCtn{
+  border:1px solid #d8d8d8;
+  margin: 10px 0;
+  padding: 8px 15px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.selectInput{
+  width: 100%;
+}
+.inputCtn image{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 5px;
+  top:25%;
+  /* z-index: 2; */
+}
+
+.submitBtn{
+  width:90%;
+  margin: 20px auto 5px;
+}
+.submitBtn button{
+  border-radius: 20px;
+  background-color: #ff8080;
+  color: white;
+  letter-spacing: 10px;
+}
+.formCtn{
+  font-size: 12pt;
+}
+.partCtn{
+  margin-bottom: 15pt;
+}
+.partContent{
+  width: 90%;
+  margin:0 auto;
+}
+.categoryTitle{
+  position: relative;
+  height: 30pt;
+}
+.redLine{
+  position: absolute;
+  left: 0;
+  width: 25rpx;
+  height: 30pt;
+  background-color: #ff8080;
+}
+.cardTitle{
+  margin-left: 15pt;
+  font-size: 14pt;
+  font-weight: bold;
+  line-height: 30pt;
+  color: #000;
+}

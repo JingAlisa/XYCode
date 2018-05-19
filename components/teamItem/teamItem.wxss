@@ -1,31 +1,39 @@
 /* pages/template/teamItem/teamItem.wxss */
 @import '../../public/css/weui.wxss';
 .teamItemCtn{
+  position: relative;
 }
 .itemCtn{
+  height: 50pt;
   display: flex;
   flex-direction: row;
   padding:10px;
   margin:0 auto 20px;
-  border:1px solid #999;
+  overflow: hidden;
   border-radius: 10px;
-  box-shadow: 3px 3px 6px 5px #bbb;
+  box-shadow: #bbb 0rpx 10rpx 30rpx 0rpx;
 }
 .itemCtn .avatarAndCount{
   flex: 1;
 }
 .itemCtn .itemDetail{
-  flex: 3;
+  flex: 4;
+  overflow: hidden;
 }
 .avatarAndCount{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    /* display: flex;
+  flex-direction: column; 
+   justify-content: space-between;   */
+   position: relative;
+   top: 50%;
+   margin-top: -15pt;
 }
 .avatarImg{
-  width: 40pt;
-  height: 40pt;
-  flex: 2;
+  width: 30pt;
+  height: 30pt;
+  vertical-align: middle; 
+  border-radius: 50%;
+  box-shadow: #aaa 0rpx 10rpx 40rpx 1rpx; 
 }
 .countCtn{
   font-size: 10px;
@@ -35,4 +43,112 @@
 }
 .countTitle{
   margin-right: 10px;
+}
+.cardAndMask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  
+}
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.cardCtn{
+  background-color: #fff;
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 15%;
+  padding: 15pt 15pt 5pt; 
+  z-index: 200;
+  border-radius: 10pt;
+  color: #999;
+  font-size: 12pt;
+}
+.redLine{
+  position: absolute;
+  left: 0;
+  top: 15pt;
+  width: 25rpx;
+  height: 40pt;
+  background-color: #ff8080;
+}
+.cardTitle{
+  font-size: 45rpx;
+  line-height: 40pt;
+  color: #000;
+  height: 40pt;
+  overflow: hidden;
+}
+
+.numAndTime{
+  overflow: hidden;
+}
+.numAndTime .applyNum{
+  float: left;
+}
+
+.numAndTime .applyTime{
+  float: right;
+}
+
+.description{
+  /* border-top: 0.1px solid #bbb; */
+  border-top: solid 1rpx #f5f5f5;
+  border-bottom: solid 1rpx #f5f5f5;
+  margin:10pt 0 15pt;
+  padding: 10pt 0 15pt;
+  height: 110pt;
+}
+.avatarAndBtn{
+  text-align: justify;
+  position: relative;
+  
+}
+.avatarAndBtn view{
+  display: inline-block;
+}
+.createrImg{
+  padding-right: 10pt;
+  
+}
+
+.applyAvatarsCtn{
+  border-left: 1px solid #bbb;
+  padding-left: 10pt;
+}
+.applyAvatars:not(:nth-last-child(1)){
+  padding-right: 5pt;
+}
+
+.detailBtn{
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+.applyAvatars image, .createrImg image{
+  width: 25pt;
+  height: 25pt;
+  border-radius: 50%;
+  box-shadow: #aaa 0rpx 10rpx 40rpx 0rpx; 
+}
+
+.detailBtn button{
+  color: white;
+  font-size: 12pt;
+  line-height: 25pt;
+  border-radius: 20px;
+  background-color: #ff8080; 
+  box-shadow: #ff8080 0rpx 10rpx 30rpx 0rpx;
 }

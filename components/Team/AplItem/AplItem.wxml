@@ -1,13 +1,25 @@
 <!--components/Team/AplItem/AplItem.wxml-->
 
-<view class="weui-media-box weui-media-box_text">
-    <view class="weui-media-box__title weui-media-box__title_in-text">
-      {{ application.judgeTime ? (application.judgment === true ? '【已通过】' : '【已拒绝】') : '【审核中】'  }}{{ application.applicantNickName }}
+<view class="team-apl">
+    <view class="apl-header">
+        <view class="apl-info">
+            <image class="apl-info-avatar" src="{{ application.applicantAvatarUrl }}" />
+            <view class="apl-info-name">
+                <text>{{ application.applicantNickName }}</text>
+                <text class="apl-info-name-append">hahaha</text>
+            </view>
+        </view>
+        <button 
+            class="apl-info-btn {{ application.judgeTime ? (application.judgment === true && from === 'team' ? 'apl-info-btn-hidden' : 'apl-info-btn-default') : ''  }}" 
+            bindtap="{{ isCreater ? 'openJudgeDialog' : '' }}"
+        >
+            {{ application.judgeTime ? (application.judgment === true ? '已通过' : '已拒绝') : (isCreater ? '审核' : '审核中') }}
+        </button>
+        <view class="apl-contact" wx:if="{{ from === 'team' && application.judgeTime && application.judgment }}">
+            <view class="apl-contact-item apl-contact-wechat" bindtap="copeWechat" wx:if="{{wechat}}"></view>
+            <view class="apl-contact-item apl-contact-qq" bindtap="copeQQ" wx:if="{{qq}}"></view>
+            <view class="apl-contact-item apl-contact-phone" bindtap="makePhoneCall" wx:if="{{phone}}"></view>
+        </view>
     </view>
-    <view class="weui-media-box__desc">{{ application.applyInfo }}</view>
-    <view class="weui-media-box__info teamInfo" wx:if="{{ isCreater && !application.judgeTime }}">
-        <view class="weui-media-box__info__meta" data-agree="{{ true }}" bindtap="judge">同意</view>
-        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra"></view>
-        <view class="weui-media-box__info__meta" data-agree="{{ false }}" bindtap="judge">拒绝</view>
-    </view>
+    <view class="apl-desc">{{ application.applyInfo }}</view>
 </view>

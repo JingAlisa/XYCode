@@ -1,15 +1,34 @@
 <!--pages/messages/messages.wxml-->
 
-<debug-info />
+<!--<debug-info />-->
 
 <view class="page">
     <view class="page__bd">
 
-      <view class="weui-cells__title">作为创建者</view>
-      <msg-list msgs="{{ msgs_pub }}" />
+      <view class="teamContainer">
 
-      <view class="weui-cells__title">作为申请者</view>
-      <msg-list msgs="{{ msgs_apl }}" />
+        <view class="team-area">
+          <view class="team-area-title">作为创建者（未读）</view>
+          <view class="team-area-content team-desc">
+            <msg-list msgs="{{ msgs_pub_unknown }}" />
+          </view>
+        </view>
+
+        <view class="team-area">
+          <view class="team-area-title">作为申请者（未读）</view>
+          <view class="team-area-content team-desc">
+            <msg-list msgs="{{ msgs_apl_unknown }}" />
+          </view>
+        </view>
+
+        <view class="team-area">
+          <view class="team-area-title">已读消息</view>
+          <view class="team-area-content team-desc">
+            <msg-list msgs="{{ msgs_known }}" />
+          </view>
+        </view>
+      
+      </view>
 
     </view>
 </view>
