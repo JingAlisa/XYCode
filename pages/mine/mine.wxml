@@ -15,10 +15,10 @@
         </view>
 
         <view class="teamsEntries">
-            <view class="teamsEntry teamsPublic" style="height: {{ teamsEntryHeight }}px">
+            <view class="teamsEntry teamsPublic" style="height: {{ teamsEntryHeight }}px" bindtap="jumpPublic">
                 <text class="teamsEntry-text">我创建的</text>
             </view>
-            <view class="teamsEntry teamsApply" style="height: {{ teamsEntryHeight }}px">
+            <view class="teamsEntry teamsApply" style="height: {{ teamsEntryHeight }}px" bindtap="jumpApply">
                 <text class="teamsEntry-text">我申请的</text>
             </view>
         </view>

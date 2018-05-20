@@ -2,7 +2,7 @@
 const app = getApp();
 const util = require("../../utils/util.js");
 const { addTeam } = require("../../utils/team");
-
+const user=require("../../utils/user");
 Page({
 
   /**
@@ -21,7 +21,15 @@ Page({
     saveDays:['3','5','7'],
 
     maxMemberIndex:2,
-    maxMember:['1','2','3','4','5']
+    maxMember:['1','2','3','4','5'],
+
+    // 已有联系方式
+    qq:'',
+    wechat:'',
+    phone:'',
+
+    // textarea框输入的个数
+    textareaLength:'0'
   
   },
 
@@ -29,38 +37,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that=this;
+    let session_3rd=wx.getStorageSync('session_3rd');
+    console.log(session_3rd);
+    user.getUserContact(session_3rd).then(userData=>{
+      let contacts = userData.user.contacts;
+      for (let i in contacts){
+        switch(contacts[i].way){
+          case 'qq':
+            that.setData({
+              qq:contacts[i].text
+            });
+            break;
+          case 'wechat':
+            that.setData({
+              wechat: contacts[i].text
+            });
+            break;
+          case 'phone':
+            that.setData({
+              phone: contacts[i].text
+            });
+            break;
+          default:
+            break;
+        }
+      }
+    });
 
-    // 调用添加新的战队函数
-    this.addTeam();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
-  //当用户提交创建战队申请后
-  addTeam:function(){
-    //获取用户填写的数据
-    // let addData={
-    //   "team":{
-    //     "title":"放风筝",
-    //     "category":"life",
-    //     "description":"春风正好，有没有想一起去田野中奔跑的小伙伴呢",
-    //     "memberMaxNumber":5,
-    //     "preserveMaxDays":7,
-    //     "contact": [{
-    //       "way": "wechat",
-    //       "text": "Alisa123"
-    //     }],
-    //     "createrUid":"xd_Alisa"
-    //   }
-    // };
-    // let addTeamURL = app.globalData.g_API + "/xiaoyuan/api/v1/team";
-    // util.postHttpRequest(addTeamURL, addData, this.dealAddTeam);  
-  },
+  
 
   bindCategoryChange: function (e) {
     console.log('picker category 发生选择改变，携带值为', e.detail.value);
@@ -134,21 +148,32 @@ Page({
         "contact": contact
       };
       console.log(team);
-      addTeam(team).then(_ => {
-        that.addResult()
+      addTeam(team).then(resData=> {
+        console.log(resData.team._id)
+        that.addResult(resData.team._id)
       })
     }
   },
 
-  addResult:function(){
+  addResult:function(itemId){
       wx.showToast({
         title: '已提交',
         icon: 'success',
         duration: 3000
       });
-      wx.switchTab({
-        url: '../teams/teams',
+      // wx.redirectTo({
+      //   url: '../teamDetail/teamDetail?id='+itemId
+      // })
+      wx.reLaunch({
+        url: '../teams/teams'
       })
+  },
+
+  // textarea根据输入的个数变化
+  changeTextareaNum:function(e){
+    this.setData({
+      textareaLength: e.detail.value.length
+    })
   },
   
 

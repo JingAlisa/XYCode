@@ -1,9 +1,21 @@
 const app = getApp();
 const { Request, ajax } = require("./http.js");
 
-// uid已失效
 function getMsgs (role, userId) {
   let url = app.globalData.g_API + "/xiaoyuan/api/v1/messages?role=" + role
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if(!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+	})
+}
+
+function getMsgsCount () {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/messages/count"
   return new Promise((resolve, reject) => {
     ajax(url).then((res) => {
       if(!res.code) {
@@ -67,6 +79,32 @@ function getApplications (teamId) {
 	})
 }
 
+function getApplyList(uid,pageIndex,pageSize) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams?role=applicant&uid=" + uid+"&pageIndex="+pageIndex+"&pageSize="+pageSize;
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if (!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
+
+function getPublicList(uid, pageIndex, pageSize) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/teams?role=creater&uid=" + uid + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if (!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
+
 function addApplication (teamId, contact, applyInfo) {
   let url = app.globalData.g_API +"/xiaoyuan/api/v1/team/" + teamId +"/application";
   let application = {
@@ -103,9 +141,12 @@ function addJudgment (teamId, applicationId, accept) {
 
 module.exports = {
   getMsgs,
+  getMsgsCount,
   getSearch,
   getTeam,
   addTeam,
+  getApplyList,
+  getPublicList,
   getApplications,
   addApplication,
   addJudgment

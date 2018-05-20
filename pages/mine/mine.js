@@ -14,7 +14,8 @@ Page({
     teamsPubBdUrl: '../../public/img/mine/pub_bd.png',
     teamsAplBdUrl: '../../public/img/mine/apl_bd.png',
     teamsEntryHeight: 0,
-    nickName: ''
+    nickName: '',
+    uid:''
   },
 
   loginManually: function () {
@@ -28,7 +29,8 @@ Page({
         setUserInfo(_)
         that.setData({
           avatarUrl: _.avatarUrl,
-          nickName: _.nickName
+          nickName: _.nickName,
+          uid:_.uid
         })
       })
     }).catch((e) => {
@@ -69,6 +71,18 @@ Page({
         }
     });
   },
+  jumpPublic:function(){
+    let that = this
+    wx.navigateTo({
+      url: '../minePublic/minePublic?uid=' + that.data.uid
+    })
+  },
+  jumpApply:function(){
+    let that=this
+    wx.navigateTo({
+      url: '../mineApply/mineApply?uid=' + that.data.uid
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -84,18 +98,21 @@ Page({
     let that = this
     getUserInfo().then(_ => {
       let userInfo = _.user
+      console.log(userInfo)
       if(!(userInfo.avatarUrl && userInfo.nickName)) {
         getUserInfoFromWx().then(_ => {
           setUserInfo(_)
           that.setData({
             avatarUrl: _.avatarUrl,
-            nickName: _.nickName
+            nickName: _.nickName,
+            uid: _.uid
           })
         })
       } else {
         that.setData({
           avatarUrl: userInfo.avatarUrl,
-          nickName: userInfo.nickName
+          nickName: userInfo.nickName,
+          uid: userInfo.uid
         })
       }  
     })

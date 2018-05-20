@@ -14,7 +14,7 @@
 
       <view class="team-info">
         <view class="team-info-text">当前 {{team.memberCount}} / {{team.memberMaxNumber}} 人(已申请{{team.applicantCount}}人)</view>
-        <view class="team-info-text">剩余 3.2 天</view>
+        <view class="team-info-text">剩余 {{leftTime}} 天</view>
       </view>
 
       <view class="team-divider"></view>
@@ -22,7 +22,7 @@
       <view class="team-area">
         <view class="team-area-title">战队介绍</view>
         <view class="team-area-content team-desc">
-          这里应该是一段描述，内容实际上就截取了描述的前100字，主要是给用户在悬浮卡片中预览战队时提供一些参考。这段文字的最后不必给出展开更多按钮，仅仅是吸引用户去查看详西的战队的的的。如果这里到了
+          {{team.description}}
         </view>
       </view>
 

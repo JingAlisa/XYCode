@@ -1,0 +1,4 @@
+<!--pages/minePublic/minePublic.wxml-->
+<view class='publicCtn'>
+  <teamList listData="{{publicData}}" result="{{result}}"/>
+</view>

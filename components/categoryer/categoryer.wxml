@@ -12,7 +12,7 @@
             </view>
             <view class="teamListCtn">
                 <view class="" hidden="{{activeIndex != 0}}">
-                  <teamList listData="{{listData}}" result="{{result}}"/>
+                  <teamList listData="{{listData}}" result="{{result}}"/> 
                 </view>
                 <view class="" hidden="{{activeIndex != 1}}">
                   <teamList listData="{{categoryData}}" result="{{result}}"/>

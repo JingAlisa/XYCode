@@ -1,0 +1,5 @@
+/* pages/mineApply/mineApply.wxss */
+.applyCtn{
+  width: 90%;
+  margin:20px auto 5px;
+}

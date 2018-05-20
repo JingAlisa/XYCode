@@ -13,7 +13,7 @@
 .inputCtn{
   border:1px solid #d8d8d8;
   margin: 10px 0;
-  padding: 8px;
+  padding: 8px 15px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -29,26 +29,10 @@
   top:25%;
   /* z-index: 2; */
 }
-.loadContact>view{
-  overflow: hidden;
-  line-height: 35px;
-}
-.loadContact image{
-  float: right;
-  width: 30px;
-  height: 30px;
-}
-.checkMessage{
-  color: #999;
-  font-size: 11pt;
-}
-.checkbox{
-  width: 20px;
-  height: 20px;
-}
+
 .submitBtn{
   width:90%;
-  margin: 20px auto 0;
+  margin: 20px auto 5px;
 }
 .submitBtn button{
   border-radius: 20px;
@@ -73,7 +57,7 @@
 .redLine{
   position: absolute;
   left: 0;
-  width: 12pt;
+  width: 25rpx;
   height: 30pt;
   background-color: #ff8080;
 }
