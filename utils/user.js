@@ -50,8 +50,24 @@ function setUserInfo (userInfo) {
 	})
 }
 
+// 获得与该用户相关的战队数量
+function getRelativeTeamsCount (userInfo) {
+	let url = app.globalData.g_API + "/xiaoyuan/api/v1/user/teams_count";
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      console.log(res)
+      if(!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+	})
+}
+
 module.exports = {
   getUserInfo,
   setUserInfo,
-  getUserContact
+  getUserContact,
+  getRelativeTeamsCount
 }

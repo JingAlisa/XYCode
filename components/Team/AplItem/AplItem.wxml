@@ -6,7 +6,7 @@
             <image class="apl-info-avatar" src="{{ application.applicantAvatarUrl }}" />
             <view class="apl-info-name">
                 <text>{{ application.applicantNickName }}</text>
-                <text class="apl-info-name-append">hahaha</text>
+                <!--<text class="apl-info-name-append">hahaha</text>-->
             </view>
         </view>
         <button 

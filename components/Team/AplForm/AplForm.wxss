@@ -1,4 +1,5 @@
 /* components/Team/AplForm/AplForm.wxss */
+@import '../../../public/css/weui.wxss';
 
 .contact {
   display: flex;

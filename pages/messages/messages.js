@@ -36,6 +36,7 @@ Page({
     //获取发布消息
     Team.getMsgs('creater', userId).then(_ => {
       let msgs = _.messages
+      console.log(msgs)
       for(let i = 0; i < msgs.length; i++) {
         msgs[i].isCreater = true
         if(msgs[i].createrKnownA) {
@@ -58,6 +59,7 @@ Page({
     //获取申请消息
     Team.getMsgs('applicant', userId).then(_ => {
       let msgs = _.messages
+      console.log(msgs)
       for(let i = 0; i < msgs.length; i++) {
         msgs[i].isCreater = false
         if(msgs[i].applicantKnownJ) {

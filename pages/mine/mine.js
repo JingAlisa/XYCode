@@ -1,7 +1,7 @@
 // pages/mine/mine.js
 const app = getApp();
 const { login, getUserInfoFromWx } = require("../../utils/login.js");
-const { getUserInfo, setUserInfo } = require('../../utils/user')
+const { getUserInfo, setUserInfo, getRelativeTeamsCount } = require('../../utils/user')
 
 Page({
 
@@ -114,7 +114,14 @@ Page({
           nickName: userInfo.nickName,
           uid: userInfo.uid
         })
-      }  
+      } 
+      // 获取参与战队数量
+      getRelativeTeamsCount().then(_ => {
+        that.setData({
+          createTeamCount: _.createTeamCount,
+          applyTeamCount: _.applyTeamCount
+        })
+      }) 
     })
 
     

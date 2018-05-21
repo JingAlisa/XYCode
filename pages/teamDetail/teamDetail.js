@@ -75,7 +75,7 @@ Page({
     })
   },
 
-  loadTeam: function (teamID) {
+  loadTeam: function (teamID, msg_id) {
     let that = this
     let teamId = teamID
     if(typeof(teamId) !== 'string' || !teamId) {
@@ -83,7 +83,7 @@ Page({
       teamId = this.data.teamId
     }
 
-    Team.getTeam(teamId).then(_ => {
+    Team.getTeam(teamId, msg_id).then(_ => {
       console.log(_.team)
       that.setData({
         team: _.team,
@@ -113,7 +113,10 @@ Page({
       leftTime: leftTime
     })
 
-    this.loadTeam(teamId)
+    // 申请者获得审核结果后，从消息列表中点进战队详情
+    let msg_id = options.msg 
+
+    this.loadTeam(teamId, msg_id)
 
     //获取单个战队的详细信息
     //let teamDetailURL = app.globalData.g_API +"/xiaoyuan/api/v1/team/"+this.data.teamId;
