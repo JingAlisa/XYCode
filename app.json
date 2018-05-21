@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/teams/teams",
     "pages/mine/mine",
     "pages/addTeam/addTeam",
-    "pages/teams/teams",
     "pages/messages/messages",
     "pages/teamDetail/teamDetail",
     "pages/mineApply/mineApply",
