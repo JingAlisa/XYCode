@@ -18,7 +18,7 @@
   line-height: 15pt;
   padding-bottom: 2.5pt;
   /* background-color: blue; */
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid #c2c2c2;
 }
 /* .apl-info{
   flex: 4;
