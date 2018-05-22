@@ -71,3 +71,12 @@
   line-height: 30pt;
   color: #000;
 }
+/*修改placeholder的样式  */
+ input::-webkit-input-placeholder{
+  color: #eee;
+  font-size: 5pt;
+}
+input::-moz-placeholder{
+  color: #eee;
+  font-size: 5pt;
+} 

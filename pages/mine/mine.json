@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "debug-info": "../../components/DebugInfo/DebugInfo"
-  }
+  },
+  "navigationBarTitleText":"我 的 页 面"
 }
