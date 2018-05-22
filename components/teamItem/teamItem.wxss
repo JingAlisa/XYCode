@@ -35,7 +35,7 @@
   vertical-align: middle; 
   align-self: center;
   border-radius: 50%;
-  box-shadow: #aaa 0rpx 0rpx 60rpx 0rpx; 
+  box-shadow: #aaa 0rpx 0rpx 40rpx 3rpx; 
 }
 .countCtn{
   font-size: 10px;
