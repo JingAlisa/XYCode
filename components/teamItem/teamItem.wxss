@@ -115,8 +115,9 @@
 }
 .avatarAndBtn{
   display: flex;
-  height: 35pt;
-  padding-top: 10pt;
+  height: 25pt;
+  padding: 8pt 5pt;
+  /* padding-top: 10pt; */
 }
 .avatarAndBtn view{
   display: inline-block;
@@ -124,23 +125,26 @@
 }
 .createrImg{
   flex: 1;
-  
+  padding-right: 5pt;
 }
 
-.applyAvatarsCtn{
-  /* border-left: 1px solid #bbb; */
-  /* padding-left: 10pt; */
+.applyAvatarsCtn{  
   flex: 4;
+  
 }
-.applyAvatars:not(:nth-last-child(1)){
-  padding-right: 5pt;
+/* .applyAvatars:not(:nth-last-child(1)){
+  padding-left: 5pt;
+} */
+.applyAvatars{
+  padding-left: 5pt;
+  border-left: 1px solid #bbb;
 }
 
 .detailBtn{
   /* position: absolute;
   right: 0;
   bottom: 5px; */
-  flex: 2.5;
+  flex: 3;
 }
 .applyAvatars image, .createrImg image{
   width: 25pt;

@@ -1,8 +1,21 @@
 const Team = require("../../utils/team");
 Component({
+  properties: {
+    unreadNum: {
+      type:Number,
+      value: 0,
+      observer: function (newVal, oldVal) {
+        let that=this;
+        that.setData({
+          messageNum:newVal
+        })
+      }
+    }
+  },
   data: {
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    messageNum: 0
   },
   methods:{
     showInput: function () {
@@ -46,6 +59,9 @@ Component({
       })
     },
     jumpToMessage:function(e){
+      this.setData({
+        messageNum: 0
+      });
       wx.navigateTo({
         url: '../../pages/messages/messages'
       })

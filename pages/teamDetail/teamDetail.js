@@ -28,6 +28,15 @@ Page({
     if(currUid === this.data.team.createrUid) {
       role = 'creater'
       apls = applications               // 给出全部申请信息
+      let creater = {
+        applicantAvatarUrl: that.data.team.createrAvatarUrl,
+        applicantNickName: that.data.team.createrNickName,
+        applyInfo: '#我是队长#',
+        contact: that.data.team.contact,
+        judgeTime: '19970101',
+        judgment: true
+      }
+      apls = [creater].concat(apls)
     } else {
       let apls_joined = []
       let apls_curr = []
@@ -66,7 +75,7 @@ Page({
     })
   },
 
-  loadTeam: function (teamID) {
+  loadTeam: function (teamID, msg_id) {
     let that = this
     let teamId = teamID
     if(typeof(teamId) !== 'string' || !teamId) {
@@ -74,11 +83,17 @@ Page({
       teamId = this.data.teamId
     }
 
-    Team.getTeam(teamId).then(_ => {
+    Team.getTeam(teamId, msg_id).then(_ => {
       console.log(_.team)
+      let createTime = new Date(_.team.createTime.replace(new RegExp(/-/gm), "/")).getTime();
+      let nowTime = new Date().getTime();
+      let preserveMaxDays = _.team.preserveMaxDays * 24;
+      // 获取剩余天数
+      let leftTime = ((preserveMaxDays - (nowTime - createTime) / 3600000) / 24).toFixed(1);
       that.setData({
         team: _.team,
-        currUserUid: _.team.currUserUid
+        currUserUid: _.team.currUserUid,
+        leftTime: leftTime
       })
       return Team.getApplications(teamId)
     }).then(_ => {
@@ -98,13 +113,16 @@ Page({
     let that = this
     //从上一个模板中获取teamId和剩余时间
     let teamId = options.id;
-    let leftTime=options.leftTime;
+    let leftTime=options.leftTime || '';
     this.setData({
       teamId: teamId,
       leftTime: leftTime
     })
 
-    this.loadTeam(teamId)
+    // 申请者获得审核结果后，从消息列表中点进战队详情
+    let msg_id = options.msg 
+
+    this.loadTeam(teamId, msg_id)
 
     //获取单个战队的详细信息
     //let teamDetailURL = app.globalData.g_API +"/xiaoyuan/api/v1/team/"+this.data.teamId;

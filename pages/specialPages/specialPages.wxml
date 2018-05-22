@@ -1,0 +1,68 @@
+<!--pages/specialPages/specialPages.wxml-->
+<view class="specialCtn">
+  <view class='specialContent'>
+    <view>
+      <view class='special-title'>“鲲鹏杯”第四届中国研究生移动终端应用设计创新大赛</view>
+      <view class='special-img'>
+        <image src='../../public/img/swiper/special.jpg'></image>
+      </view>
+      <view class='special-desc description'>
+        为提升研究生科技创新能力，引导和激励研究生创新实践，教育部学位与研究生教育发展中心、中国科协青少年科技中心联合全国工程专业学位研究生教育指导委员会举办“鲲鹏杯”第四届中国研究生移动终端应用设计创新大赛（英文名称：China Graduate Contest on Application, Design and Innovation of Mobile-Terminal）（原为“全国研究生移动终端应用设计创新大赛”，自2018年起更名为“中国研究生移动终端应用设计创新大赛”，以下简称大赛）。2018年第四届大赛由西安电子科技大学承办。
+      </view>
+    </view>
+    <view class='special-orginaze'>
+      <view class='special-org-title title'>一、校内组织机构</view>
+      <view class='special-org-desc description'>
+        为做好赛事的校内组织工作,根据《西安电子科技大学研究生学科竞赛管理办法（试行）》（西电研[2017]9号）及《关于相关学院承办2018年研究生学科竞赛校内赛的通知》（西电研[2018]11号）精神，大赛的校内组织工作由研究生院/研究生工作部统筹，计算机学院承办，面向全校开展竞赛宣传、组织、选拔和指导工作。
+      </view>
+    </view>
+    <view class='special-timeline'>
+      <view class='special-time-title title'>二、大赛举办时间</view>
+      <view class='special-time-desc description'>
+        <view>
+          <view>1.   4月11日，发布参赛通知，开始用户注册。</view>
+          <view>2.  4月16日—5月20日，校内赛报名参赛。</view>
+          <view>3.  5月21日—5月31日，大赛校内选拔。</view>
+          <view>4.   6月1日—6月30日，参赛作品校内指导。</view>
+          <view>5.   7月4日—7月16日，国家赛初审及结果公示。</view>
+          <view>6.   9月15日—9月16日，全国总决赛。</view>
+          <view>( 注：各项内容具体时间安排以具体通知为准 )</view>
+        </view>
+      </view>
+    </view>
+    <view class='special-object'>
+      <view class='special-obj-title title'>三、申报对象</view>
+      <view class='special-obj-desc description'>
+        凡正式注册的在读研究生（含全日制及非全日制硕士生、博士生及国（境）外同层次的学生）、已确定保研资格的本科生及研究生毕业两年内的毕业生均可参赛。参赛作品可以是个人作品，也可以是集体作品。鼓励参赛学生以团队形式提交作品，并明确队员排序和分工。参赛作品的申报者为 1 至 4 人，且必须全部为学生。此外，参赛队伍可申报至多 2 名作品指导教师，大赛组委会将按照申报顺序进行排序
+      </view>
+    </view>
+    <view class='special-signUp'>
+      <view class='special-sign-title title'>四、报名流程</view>
+      <view class='special-sign-desc description'>
+        <view>
+          参赛团队需登陆大赛官方网站（https://cpipc.chinadegrees.cn/）进行注册。
+    参赛团队注册完成后，需填写《第四届中国研究生 移动终端应用设计创新大赛报名表》，由所在学院审核后汇总上报。各学院需于5月21日前将《报名表》汇总后交至大赛管理办公室。
+        </view>
+        <view>
+          <view>地点：北校区主楼四区217室</view>
+          <view>办公电话：88202356 张老师</view>
+          <view>邮箱：ydzdds2018xdxns@163.com</view>
+          <view>大赛校内交流QQ群:532057097</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--以下为发起组队的消息  -->
+  <view class='createNewTeam' bindtap='newTeam'>
+    <text>立即组建自己的战队</text>
+    <image src='../../public/img/icon/hand_right.png'></image>
+  </view>
+  <!-- <view class='clearFloat'></view> -->
+  <!--以下为组队的成员  -->
+  <view class='joinedTeams'>
+    <view class='joinedTeams-title'>加入已有战队</view>
+    <teamList class="listData" listData="{{listData}}"/>
+  </view>
+</view>
+

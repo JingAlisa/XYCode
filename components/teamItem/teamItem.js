@@ -11,7 +11,7 @@ Component({
       value:{},
       observer:function(newVal,oldVal){
         var that=this;
-        var createTime=new Date(newVal.createTime).getTime();
+        var createTime=new Date(newVal.createTime.replace(new RegExp(/-/gm) ,"/")).getTime();
         var nowTime=new Date().getTime();
         let preserveMaxDays = newVal.preserveMaxDays*24;
         // 获取剩余天数

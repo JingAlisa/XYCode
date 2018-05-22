@@ -1,17 +1,18 @@
 <!--components/Team/AplForm/AplForm.wxml-->
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showTips}}">请完善内容</view>
 
 <view class="contact">
   <view class="contact-indicator">
     <text>{{ contactWayTexts[contactWayIndex] }}: </text>
   </view>
-  <input class="contact-input" bindblur="bindContactTextChange" placeholder="请输入联系方式" name="contactText" value="{{contactTextExisted}}" />
+  <input class="contact-input" type="{{contactInputType}}" bindblur="bindContactTextChange" placeholder="请输入联系方式" name="contactText" value="{{contactTextExisted}}" />
   <picker class="contact-picker" bindchange="bindContactWaysChange" value="{{ contactWayIndex }}" range="{{ contactWayTexts }}">
     <view class="contact-picker-img" />
   </picker>
 </view>
 
 <view class="info">
-  <textarea bindinput="bindApplyInfoChange" placeholder="请大胆的展示自己，增加申请成功几率，不超过500字" name="applyInfo" maxlength="500" bindinput='changeTextareaNum' />
+  <textarea placeholder="请大胆的展示自己，增加申请成功几率，不超过500字" value="{{applyInfo}}" name="applyInfo" maxlength="500" bindinput='changeTextareaNum' />
   <view class='textareaNum'>{{textareaLength}}/500</view>
 </view>
 

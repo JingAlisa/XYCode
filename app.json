@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/teams/teams",
+    
+    "pages/teams/teams","pages/specialPages/specialPages",
     "pages/mine/mine",
     "pages/addTeam/addTeam",
     "pages/messages/messages",

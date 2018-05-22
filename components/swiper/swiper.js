@@ -40,6 +40,21 @@ Component({
       this.setData({
         duration: e.detail.value
       })
+    },
+    jumpToDetail:function(event){
+      let id=event.currentTarget.dataset.id;
+      let category = event.currentTarget.dataset.category;
+      console.log(category);
+      if(category=='life' || category=='study' || category=='friends'){
+        wx.navigateTo({
+          url: '../../pages/teamDetail/teamDetail?id=' + id
+        })
+      }else if(category=='default'){
+      }else{
+        wx.navigateTo({
+          url: '../../pages/specialPages/specialPages?id='+id+"&category="+category
+        })
+      }
     }
   }
 })
