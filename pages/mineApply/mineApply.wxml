@@ -1,4 +1,7 @@
 <!--pages/mineApply/mineApply.wxml-->
 <view class='applyCtn'>
   <teamList listData="{{applyData}}" result="{{result}}"/>
+  <view wx:if="{{applyData.length===0}}" class='logoCtn'>
+    <image src='../../public/img/logo.png'></image>
+  </view>
 </view>

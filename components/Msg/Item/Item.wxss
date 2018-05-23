@@ -50,9 +50,10 @@
 }
 .apl-info-name-append{
   color: #aaa;
-  font-size: 11pt;
+  font-size: 10pt;
   width: 90%; 
   overflow: hidden;
+  /* letter-spacing: 0.5pt; */
   /* white-space: nowrap; */
   text-overflow: ellipsis; 
     

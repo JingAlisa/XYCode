@@ -77,7 +77,8 @@ Page({
         // 对msgs_known重排序
         that.setKnownMsgs(msgs_known)
       }
-    })
+    });
+    
   },
 
   compareDate(d1,d2) {
@@ -117,14 +118,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // 如果没有消息
+    if (this.msgs_pub_unknown && this.msgs_apl_unknown && this.msgs_apl_unknown && this.msgs_pub_unknown.length === 0 && this.msgs_apl_unknown.length === 0 && this.msgs_known.length === 0) {
+      console.log('123');
+      wx.showModal({
+        title: '提示框',
+        content: '您还没有任何消息，先去主页逛逛？',
+        sunccess: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: 'pages/teams/teams',
+            })
+          } else { }
+        }
+      })
+    }
   },
 
   /**

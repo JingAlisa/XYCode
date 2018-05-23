@@ -25,8 +25,21 @@ Page({
       console.log(publicData.teams);
       that.setData({
         publicData:publicData.teams
-      })
-    })
+      });
+      if(publicData.length===0){
+        wx.showModal({
+          title: '提示框',
+          content: '您还没有创建过自己的战队，是否立即创建？',
+          sunccess:function(res){
+            if(res.confirm){
+              wx.reLaunch({
+                url: '../addTeam/addTeam',
+              })
+            }
+          }
+        })
+      }
+    });
   },
 
   /**

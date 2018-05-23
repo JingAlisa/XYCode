@@ -13,7 +13,8 @@
           <!-- <view class='itemSlogan'>{{item.slogan}}</view> -->
         </view>
          <!-- <image class='sliderImg' src='{{imgUrls[index+1]}}'></image>  -->
-         <image class='sliderImg' src='{{item.coverImgUrl}}'></image>          
+         <image wx:if='{{index==0}}' src='{{imgUrls[index]}}' class='sliderImg'></image>
+         <image wx:else src='{{item.coverImgUrl}}' class='sliderImg'></image>          
       <!-- </navigator> -->
     </swiper-item>
   </block>

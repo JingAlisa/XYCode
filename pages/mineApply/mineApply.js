@@ -26,7 +26,20 @@ Page({
       console.log(applyData.teams);
       that.setData({
         applyData: applyData.teams
-      })
+      });
+      if (applyData.length === 0) {
+        wx.showModal({
+          title: '提示框',
+          content: '您还没有加入过战队，先去看看已有战队？',
+          sunccess: function (res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '../teams/teams',
+              })
+            }
+          }
+        })
+      }
     })
   },
 

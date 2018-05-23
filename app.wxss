@@ -49,3 +49,12 @@ page{
     text-align: left;
     font-size: 30rpx;
 }
+.logoCtn{
+  display: flex; 
+  margin-top: 50%;
+}
+.logoCtn image{
+  width: 300rpx;
+  height: 145rpx;
+  margin: 0 auto;
+}

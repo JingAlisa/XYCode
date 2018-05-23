@@ -5,31 +5,33 @@
 <view class="page">
     <view class="page__bd">
 
-      <view class="teamContainer">
+      <view wx:if="{{msgs_pub_unknown.length>0 || msgs_apl_unknown.length>0 || msgs_known.length>0}}" class="teamContainer">
 
         <view class="team-area">
-          <view class="team-area-title">作为创建者（未读）</view>
+          <view wx:if="{{msgs_pub_unknown.length>0}}" class="team-area-title">作为创建者（未读）</view>
           <view class="team-area-content team-desc">
             <msg-list msgs="{{ msgs_pub_unknown }}" />
           </view>
         </view>
 
         <view class="team-area">
-          <view class="team-area-title">作为申请者（未读）</view>
+          <view wx:if="{{msgs_apl_unknown.length>0}}" class="team-area-title">作为申请者（未读）</view>
           <view class="team-area-content team-desc">
             <msg-list msgs="{{ msgs_apl_unknown }}" />
           </view>
         </view>
 
         <view class="team-area">
-          <view class="team-area-title">已读消息</view>
+          <view wx:if="{{msgs_known.length>0}}" class="team-area-title">已读消息</view>
           <view class="team-area-content team-desc">
             <msg-list msgs="{{ msgs_known }}" />
           </view>
         </view>
       
       </view>
-
+       <view wx:else class='logoCtn'>
+        <image src='../../public/img/logo.png'></image>
+      </view> 
     </view>
 </view>
 
