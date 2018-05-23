@@ -22,28 +22,52 @@ function ajax(url, Data, method="GET", config={}){
 	let data = Data ? Data : {}
 	let session_3rd = wx.getStorageSync('session_3rd') // 获取skey
 	if(!session_3rd){  // 没有skey，首次登录
-		wx.switchTab({
-			url: '/pages/mine/mine'
+		return new Promise((resolve, reject) => {
+			login().then(session_3rd => {
+				data.session_3rd = session_3rd
+				wx.request({
+					url,
+					method: method.toLocaleUpperCase(),
+					data,
+					success: (ret) => {
+						resolve(ret.data)
+					}
+				})
+			})
 		})
-		// return new Promise((resolve, reject) => {
-		// 	LOGIN.login()
-		// 	reject('请登录')
-		// })
 	} else {
 		return new Promise((resolve, reject) => {
       checkSession().then( _=> {
-        if (_){ // session_key有效
+        if (_){ // 微信登陆态有效
 					data.session_3rd = session_3rd
           wx.request({
             url,
             method: method.toLocaleUpperCase(),
             data,
             success: (ret) => {
-              resolve(ret.data)
+							if(!ret.data.code) {
+								resolve(ret.data)
+							} else if(ret.data.code === 2001) {
+								// session_3rd无效，即登陆可能已经过期或者在其他设备登陆了
+								login().then(session_3rd => {
+									data.session_3rd = session_3rd
+									wx.request({
+										url,
+										method: method.toLocaleUpperCase(),
+										data,
+										success: (ret) => {
+											resolve(ret.data)
+										}
+									})
+								})
+							} else {
+              	console.log('ERROR In ajax(): ')
+								console.log(ret.data)
+							}
             }
           })
-        } else { // session_3rd失效
-          login().then(_ => {
+        } else { // 微信登陆态失效
+          login().then(session_3rd => {
 						data.session_3rd = session_3rd
 						wx.request({
 							url,

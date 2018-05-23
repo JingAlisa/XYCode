@@ -29,7 +29,11 @@ Page({
     phone:'',
 
     // textarea框输入的个数
-    textareaLength:'0'
+    textareaLength:'0',
+
+    // 专题页
+    specialCategory:'',
+    tag:[]
   
   },
 
@@ -64,14 +68,20 @@ Page({
         }
       }
     });
-
+    console.log(app.globalData.specialCategory);
+    if (app.globalData.specialCategory){
+      that.setData({
+        specialCategory: '#鲲鹏杯#',
+        tag: [app.globalData.specialCategory]
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log(getCurrentPages());
   },
 
   
@@ -145,7 +155,8 @@ Page({
         "description":formData.description,
         "memberMaxNumber": this.data.maxMember[formData.maxMember],
         "preserveMaxDays": this.data.saveDays[formData.saveDays],
-        "contact": contact
+        "contact": contact,
+        "tag":this.data.tag
       };
       console.log(team);
       addTeam(team).then(resData=> {
@@ -175,8 +186,30 @@ Page({
       textareaLength: e.detail.value.length
     })
   },
-  
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onHide: function () {
+    app.globalData.specialCategory='';
+  },
 
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function () {
+    console.log(app.globalData.specialCategory);
+    if (app.globalData.specialCategory) {
+      this.setData({
+        specialCategory: '#鲲鹏杯#',
+        tag: [app.globalData.specialCategory]
+      })
+    }else{
+      this.setData({
+        specialCategory: '',
+        tag: []
+      })
+    }
+  },
   /**
    * 用户点击右上角分享
    */

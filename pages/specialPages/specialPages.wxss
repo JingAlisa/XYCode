@@ -1,0 +1,59 @@
+/* pages/specialPages/specialPages.wxss */
+.specialCtn{
+  width: 90%;
+  margin:0 auto 5pt;
+  font-size: 10pt;
+  /* color:#999; */
+}
+.specialContent{
+  margin:5pt 0;
+}
+.special-title{
+  font-size: 13pt;
+  text-align: center;
+  color: black;
+}
+.special-img{
+  text-align: center;
+  height: 100pt;
+  overflow: hidden;
+}
+.special-img image{
+  width: 100%;
+}
+.title{
+  font-size: 12pt;
+  background-color: #c0c0c0;
+  color: white;
+  line-height: 25pt;
+  margin: 15pt 0 5pt 0;
+  padding-left: 10pt;
+  border-radius: 5pt;
+
+}
+.description{
+  text-indent:20pt;
+}
+.createNewTeam{
+  line-height: 30pt;
+  display: flex;
+  flex-direction: row;
+  font-size: 13pt;
+  letter-spacing: 2pt;
+  /* justify-content:space-between; */
+  /* float: right; */
+  color: #ff8080
+}
+.createNewTeam image{
+  width: 25pt;
+  height: 25pt;
+}
+/* .clearFloat{
+  clear: both;
+} */
+.joinedTeams-title{
+  line-height: 30pt;
+  font-size: 13pt;
+  letter-spacing: 2pt;
+  color: #ff8080;
+}

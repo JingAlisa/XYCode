@@ -23,7 +23,7 @@
     </view>
     <view class="partContent">
         <view class='inputCtn'>
-          <input name="title" placeholder='请填写战队名称' />
+          <input name="title" placeholder='{{specialCategory}}请填写战队名称' />
         </view>
         <view class="weui-cell   inputCtn">
             <view class="weui-cell__hd">

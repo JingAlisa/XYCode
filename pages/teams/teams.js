@@ -56,29 +56,35 @@ Page({
     let dataArr = data.data.teams;
     let hotData = [];
     for (let key in dataArr) {
-      if (dataArr[key].team === null) {
-        hotData[key] = {
-          title: '在校缘与你相遇',
-          slogan: '校缘致力于为大家提供一个交流的机会',
-          description: '让每个有想法的人不再孤军奋战'
-        }
-      } else {
-        switch (dataArr[key].category) {
-          case "study":
-            hotData[0] = dataArr[key].team;
-            hotData[0].class = '爱学习'
-            break;
-          case "life":
-            hotData[1] = dataArr[key].team;
-            hotData[1].class = '爱生活'
-            break;
-          case "friends":
-            hotData[2] = dataArr[key].team;
-            hotData[2].class = '爱社交'
-            break;
-          default:
-            break;
-        }
+      // if (dataArr[key].team === null) {
+      //   hotData[key] = {
+      //     title: '在校缘与你相遇',
+      //     slogan: '校缘致力于为大家提供一个交流的机会',
+      //     description: '让每个有想法的人不再孤军奋战'
+          
+      //   }
+      // } else {
+        
+      // }
+      hotData[key] = dataArr[key].team;
+      switch (dataArr[key].category) {
+        case "default":
+          hotData[key].class = '';
+          break;
+        case "study":
+          hotData[key].class = '爱学习'
+          break;
+        case "life":
+          hotData[key].class = '爱生活'
+          break;
+        case "friends":
+          hotData[key].class = '爱社交'
+          break;
+        default:
+          // hotData[key].class = dataArr[key].category;
+          hotData[key].class = '鲲鹏杯';
+          hotData[key].category = dataArr[key].category;
+          break;
       }
     }
     this.setData({

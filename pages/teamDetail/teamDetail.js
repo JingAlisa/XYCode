@@ -85,9 +85,15 @@ Page({
 
     Team.getTeam(teamId, msg_id).then(_ => {
       console.log(_.team)
+      let createTime = new Date(_.team.createTime.replace(new RegExp(/-/gm), "/")).getTime();
+      let nowTime = new Date().getTime();
+      let preserveMaxDays = _.team.preserveMaxDays * 24;
+      // 获取剩余天数
+      let leftTime = ((preserveMaxDays - (nowTime - createTime) / 3600000) / 24).toFixed(1);
       that.setData({
         team: _.team,
-        currUserUid: _.team.currUserUid
+        currUserUid: _.team.currUserUid,
+        leftTime: leftTime
       })
       return Team.getApplications(teamId)
     }).then(_ => {
@@ -107,7 +113,7 @@ Page({
     let that = this
     //从上一个模板中获取teamId和剩余时间
     let teamId = options.id;
-    let leftTime=options.leftTime;
+    let leftTime=options.leftTime || '';
     this.setData({
       teamId: teamId,
       leftTime: leftTime

@@ -7,6 +7,7 @@
           </view>
         </view>
         <view class='messageCtn' bindtap="jumpToMessage">
-          <image  src='../../public/img/icon/message.png'></image>  
+          <image wx:if="{{messageNum==0}}"  src='../../public/img/icon/message.png'></image>  
+          <image wx:else src='../../public/img/icon/newMessage.png'></image>
         </view>
 </view>

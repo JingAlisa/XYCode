@@ -2,13 +2,15 @@
 
 <view class="team-apl">
     <view class="apl-header">
-        <view class="apl-info">
+        <!-- <view class="apl-info"> -->
+          <view class="apl-info-avatar_ctn">
             <image class="apl-info-avatar" src="{{ application.applicantAvatarUrl }}" />
+          </view>        
             <view class="apl-info-name">
                 <text>{{ application.applicantNickName }}</text>
                 <text class="apl-info-name-append">申请加入「{{application.team.title}}」</text>
             </view>
-        </view>
+        <!-- </view> -->
         <button 
             class="apl-info-btn {{ application.judgeTime ? (application.judgment === true && from === 'team' ? 'apl-info-btn-hidden' : 'apl-info-btn-default') : ''  }}" 
             bindtap="{{ (application.isCreater && !application.judgeTime) ? 'openJudgeDialog' : 'openTeam' }}"

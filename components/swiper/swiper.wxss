@@ -43,21 +43,26 @@
   text-align: center;
 }
 .itemCategory{
-  font-size: 12pt;
+  font-size: 11pt;
+  letter-spacing: 5px;
+  line-height: 15pt;
   width: 20%;
-  padding:2px;
+  padding:2px 0 2px 5px; 
   margin:0 auto;
   border-radius: 5px;
 }
 .itemTitle{
-  font-size: 16pt;
-  line-height: 20pt;
-  height: 20pt;
+  font-size: 14pt;
+  line-height: 25pt;
+  height: 25pt;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .itemDescription{
-  font-size: 11pt;
-  line-height: 12pt;
-  height: 12pt;
+  font-size: 10pt;
+  line-height: 12pt; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
   width: 80%;
   margin: 0 auto;
