@@ -1,8 +1,9 @@
 {
   "pages": [
+    
+    "pages/teams/teams","pages/specialPages/specialPages",
     "pages/mine/mine",
     "pages/addTeam/addTeam",
-    "pages/teams/teams",
     "pages/messages/messages",
     "pages/teamDetail/teamDetail",
     "pages/mineApply/mineApply",
@@ -11,26 +12,26 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "校 缘",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/teams/teams",
-        "text": "",
+        "text": "主页",
         "iconPath": "public/img/tabbar/home.png",
         "selectedIconPath": "public/img/tabbar/home_selected.png"
       },
       {
         "pagePath": "pages/addTeam/addTeam",
-        "text": "",
+        "text": "创建",
         "iconPath": "public/img/tabbar/add.png",
         "selectedIconPath": "public/img/tabbar/add_selected.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "",
+        "text": "我的",
         "iconPath": "public/img/tabbar/mine.png",
         "selectedIconPath": "public/img/tabbar/mine_selected.png"
       }

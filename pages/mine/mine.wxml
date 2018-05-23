@@ -11,7 +11,8 @@
         <view class='userInfo'>
             <image class="userInfo-avatar" src="{{ avatarUrl }}" background-size="cover"></image>
             <text class='userInfo-name'>{{ nickName }}</text>
-            <text class='userInfo-desc'>落霞与孤鹜齐飞</text>
+            <text class='userInfo-desc' wx:if="{{createTeamCount + applyTeamCount > 0}}">已成功参与 {{createTeamCount + applyTeamCount}} 个战队</text>
+            <text class='userInfo-desc' wx:else >快创建自己的战队吧！</text>
         </view>
 
         <view class="teamsEntries">

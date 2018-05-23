@@ -14,6 +14,19 @@ function getMsgs (role, userId) {
 	})
 }
 
+function getMsgsCount () {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/messages/count"
+  return new Promise((resolve, reject) => {
+    ajax(url).then((res) => {
+      if(!res.code) {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+	})
+}
+
 function getSearch(keyword){
   let url = app.globalData.g_API +"/xiaoyuan/api/v1/teams/s?keyword="+keyword;
   return new Promise((resolve,reject)=>{
@@ -27,10 +40,14 @@ function getSearch(keyword){
   })
 }
 
-function getTeam (teamId) {
-  let url = app.globalData.g_API + "/xiaoyuan/api/v1/team/" + teamId;
+function getTeam (teamId, msg_id) {
+  let url = app.globalData.g_API + "/xiaoyuan/api/v1/team/" + teamId
+  let data = {}
+  if(msg_id) {
+    data.msg = msg_id
+  }
   return new Promise((resolve, reject) => {
-    ajax(url).then((res) => {
+    ajax(url, data).then((res) => {
       if(!res.code) {
         resolve(res.data)
       } else {
@@ -128,6 +145,7 @@ function addJudgment (teamId, applicationId, accept) {
 
 module.exports = {
   getMsgs,
+  getMsgsCount,
   getSearch,
   getTeam,
   addTeam,

@@ -17,6 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    showTips:false,
     contactWays: ['qq', 'wechat', 'phone'],
     contactWayTexts: ['QQ', '微信', '电话'],
     contactWayIndex: 0,
@@ -24,6 +25,7 @@ Component({
     contactTextExisted: '',
     applyInfo: '',
     contacts: [],        // 用户之前填写过的联系方式，在服务端获取
+    contactInputType: 'number',
     textareaLength:'0'
   },
 
@@ -62,7 +64,8 @@ Component({
         if(contactWaySelected === contactsExisted[i].way) {
           that.setData({
             contactTextExisted: contactsExisted[i].text,
-            contactText: contactsExisted[i].text
+            contactText: contactsExisted[i].text,
+            contactInputType: contactsExisted[i].way === 'wechat' ? 'text' : 'number'
           })
           break;
         }
@@ -75,13 +78,21 @@ Component({
       })
     },
 
-    bindApplyInfoChange: function (e) {
-      this.setData({
-        applyInfo: e.detail.value
-      })
-    },
-
     submitApl: function () {
+      let that = this
+
+      if(!this.data.contactText || !this.data.applyInfo) {
+        this.setData({
+          showTips: true
+        });
+        setTimeout(function () {
+          that.setData({
+            showTips: false
+          })
+        }, 1000);
+        return;
+      }
+
       let contact = [{
         way: this.data.contactWays[this.data.contactWayIndex],
         text: this.data.contactText
@@ -104,8 +115,6 @@ Component({
 
     clearApl: function () {
       this.setData({
-        contactWayIndex: 0,
-        contactText: '',
         applyInfo: ''
       })
     },
@@ -113,6 +122,7 @@ Component({
     // textarea根据输入的个数变化
     changeTextareaNum: function (e) {
       this.setData({
+        applyInfo: e.detail.value,
         textareaLength: e.detail.value.length
       })
     }

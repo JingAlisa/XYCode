@@ -2,5 +2,6 @@
   "usingComponents": {
     "msg-list": "../../components/Msg/List/List",
     "debug-info": "../../components/DebugInfo/DebugInfo"
-  }
+  },
+  "navigationBarTitleText": "我 的 消 息"
 }

@@ -1,4 +1,7 @@
 /* pages/addTeam/addTeam.wxss */
+.formCtn{
+  color: #999;
+}
 .teamCtn{
   width: 85%;
   margin: 0 auto;
@@ -32,7 +35,7 @@
 
 .submitBtn{
   width:90%;
-  margin: 20px auto 5px;
+  margin: 20px auto 10px;
 }
 .submitBtn button{
   border-radius: 20px;
@@ -64,7 +67,16 @@
 .cardTitle{
   margin-left: 15pt;
   font-size: 14pt;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 30pt;
   color: #000;
 }
+/*修改placeholder的样式  */
+ input::-webkit-input-placeholder{
+  color: #eee;
+  font-size: 5pt;
+}
+input::-moz-placeholder{
+  color: #eee;
+  font-size: 5pt;
+} 

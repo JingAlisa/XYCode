@@ -1,19 +1,21 @@
 <swiper class="sliderContainer" indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='true' indicator-active-color='#ff8080'>
-  <swiper-item class="sliderItem">
+  <!-- <swiper-item class="sliderItem">
     <image class='sliderImg' src='{{imgUrls[0]}}'></image>
-  </swiper-item>
+  </swiper-item> -->
   <block class="sliderItemCtn" wx:for="{{hotData}}" wx:key="{{hotData.category}}">
-    <swiper-item class="sliderItem">
-      <navigator url='../../pages/teamDetail/teamDetail?id={{item._id}}'>
+    <swiper-item class="sliderItem" bindtap="jumpToDetail" data-id="{{item._id}}" data-category="{{item.category}}">
+      <!-- <navigator url='../../pages/teamDetail/teamDetail?id={{item._id}}'> -->
         <view class='sliderContent {{item.category}}'>
           <view class='itemCategory'>{{item.class}}</view>
           <view class='itemTitle'>{{item.title}}</view>
           <view class='itemDescription'>{{item.description}}</view>
           <!-- <view class='itemSlogan'>{{item.slogan}}</view> -->
         </view>
-        <image class='sliderImg' src='{{imgUrls[index+1]}}'></image>
-      </navigator>
+         <!-- <image class='sliderImg' src='{{imgUrls[index+1]}}'></image>  -->
+         <image wx:if='{{index==0}}' src='{{imgUrls[index]}}' class='sliderImg'></image>
+         <image wx:else src='{{item.coverImgUrl}}' class='sliderImg'></image>          
+      <!-- </navigator> -->
     </swiper-item>
   </block>
 </swiper>
