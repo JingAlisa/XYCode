@@ -87,6 +87,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    let that = this
+    return {
+      title: '欢迎关注「鲲鹏杯」'
+    }
   }
 })
