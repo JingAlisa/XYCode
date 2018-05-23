@@ -16,6 +16,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#c2c2c2",
+    "selectedColor": "#595959",
     "list": [
       {
         "pagePath": "pages/teams/teams",
