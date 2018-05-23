@@ -1,11 +1,11 @@
 /* Components/Msg/Item/Item.wxss */
 
 .team-apl {
-  margin-top: 35rpx;
+  margin-top: 20rpx;
   /*margin-bottom: 25rpx;*/
   border-radius: 5pt;
   box-shadow: #aaa 0rpx 10rpx 30rpx 0rpx; 
-  height: 70pt;
+  height: 60pt;
   padding: 5pt;
 }
 

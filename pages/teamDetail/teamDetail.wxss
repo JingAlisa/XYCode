@@ -36,7 +36,7 @@
 }
 
 .team-info-text {
-  font-size: 25rpx;
+  font-size: 10pt;
   color: #aaa;
 }
 
@@ -60,8 +60,9 @@
 
 .team-desc {
   color: #aaa;
-  font-size: 25rpx;
+  font-size: 10.5pt;
   text-align: justify;
+  text-indent: 22pt;
   line-height: 50rpx;
 }
 

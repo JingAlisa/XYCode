@@ -1,5 +1,5 @@
 <!--Components/Msg/List/List.wxml-->
 
 <block wx:for="{{ msgs }}" wx:for-item="msg" wx:key="{{ msg._id }}">
-  <msg-item bind:judgmentAdded="refreshTeam" application="{{ msg }}" />
+  <msg-item bind:judgmentAdded="refreshMsgList" application="{{ msg }}" />
 </block>

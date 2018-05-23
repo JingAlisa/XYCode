@@ -15,17 +15,8 @@ Page({
     msgs_apl: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  initMsgList() {
     let that = this
-    //从app.js文件中获取userId，已失效
-    let userId = app.globalData.userId;
-
-    this.setData({
-      userId
-    })
 
     let msgs_pub_unknown = [],
         msgs_apl_unknown = [],
@@ -34,7 +25,7 @@ Page({
     let createrIsOK = false, // creater和applicant两者均已经处理OK，确保可以对已读进行时间排序了（二者异步并行，只能这样保证执行结束）
         applicantIsOK = false
     //获取发布消息
-    Team.getMsgs('creater', userId).then(_ => {
+    Team.getMsgs('creater', '').then(_ => {
       let msgs = _.messages
       console.log(msgs)
       for(let i = 0; i < msgs.length; i++) {
@@ -57,7 +48,7 @@ Page({
     })
 
     //获取申请消息
-    Team.getMsgs('applicant', userId).then(_ => {
+    Team.getMsgs('applicant', '').then(_ => {
       let msgs = _.messages
       console.log(msgs)
       for(let i = 0; i < msgs.length; i++) {
@@ -78,8 +69,20 @@ Page({
         that.setKnownMsgs(msgs_known)
       }
     });
-    
   },
+
+  // 审核后事件冒泡，触发刷新
+  refreshMsgList() {
+    this.initMsgList()
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.initMsgList()
+  },
+
 
   compareDate(d1,d2) {
     let time1 = new Date(d1.judgeTime ? d1.judgeTime : d1.applyTime),

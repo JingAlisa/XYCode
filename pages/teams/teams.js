@@ -192,7 +192,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '校缘 - 我们的slogan'
+      title: '校缘 - 让每个有想法的人不再孤单'
     }
   }
 })
