@@ -10,7 +10,7 @@
         <view class="team-area">
           <view wx:if="{{msgs_pub_unknown.length>0}}" class="team-area-title">作为创建者（未读）</view>
           <view class="team-area-content team-desc">
-            <msg-list msgs="{{ msgs_pub_unknown }}" />
+            <msg-list bind:refreshMsgList="refreshMsgList" msgs="{{ msgs_pub_unknown }}" />
           </view>
         </view>
 

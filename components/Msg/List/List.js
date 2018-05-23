@@ -31,6 +31,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    refreshMsgList: function () {
+      console.log('MsgList组件收到从MsgItem传来的judgmentAdded事件')
+      this.triggerEvent('refreshMsgList', { })
+    }
   }
 })
