@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "teamList": "../../components/teamList/teamList"
-  }
+  },
+  "navigationBarTitleText": "我 的 申 请"
 }
