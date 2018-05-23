@@ -191,6 +191,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '校缘 - 我们的slogan'
+    }
   }
 })
