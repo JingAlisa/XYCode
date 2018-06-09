@@ -5,7 +5,8 @@
   /*margin-bottom: 25rpx;*/
   border-radius: 5pt;
   box-shadow: #aaa 0rpx 10rpx 30rpx 0rpx; 
-  height: 60pt;
+  height: 65pt;
+  overflow: hidden;
   padding: 5pt;
 }
 

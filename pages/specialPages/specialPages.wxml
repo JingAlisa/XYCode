@@ -4,7 +4,7 @@
     <view>
       <view class='special-title'>“鲲鹏杯”第四届中国研究生移动终端应用设计创新大赛</view>
       <view class='special-img'>
-        <image src='../../public/img/swiper/special.jpg'></image>
+        <image src='https://hooxz.cn/xiaoyuan/api/v1/images/hot/hot_kunpeng.jpg'></image>
       </view>
       <view class='special-desc description'>
         为提升研究生科技创新能力，引导和激励研究生创新实践，教育部学位与研究生教育发展中心、中国科协青少年科技中心联合全国工程专业学位研究生教育指导委员会举办“鲲鹏杯”第四届中国研究生移动终端应用设计创新大赛（英文名称：China Graduate Contest on Application, Design and Innovation of Mobile-Terminal）（原为“全国研究生移动终端应用设计创新大赛”，自2018年起更名为“中国研究生移动终端应用设计创新大赛”，以下简称大赛）。2018年第四届大赛由西安电子科技大学承办。
