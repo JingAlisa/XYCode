@@ -18,7 +18,7 @@
   line-height: 15pt;
   padding-bottom: 2.5pt;
   /* background-color: blue; */
-  border-bottom: 1px solid #c2c2c2;
+  border-bottom: 1px solid #ddd;
 }
 /* .apl-info{
   flex: 4;
@@ -60,14 +60,17 @@
 }
  .apl-info-btn {
   flex: 1; 
-  margin: 2.5pt 2.5pt 2.5pt 0;
-  height: 25pt;
+  margin: 2.5pt auto;
+  /* height: 25pt; */
   border-radius: 12.5rpx;
   box-shadow: #ff8080 0rpx 1rpx 50rpx 0rpx;
   background-color: #ff8080;
   color: white;
+   padding-left:0px; 
+  padding-right: 0px;
   font-size: 11pt;
   line-height: 25pt;
+  border:none;
 } 
 
 .apl-info-btn-hidden {
@@ -77,6 +80,7 @@
   flex: 1;
   box-shadow: #aaa 0rpx 1rpx 50rpx 0rpx;
   background-color: #aaa;
+  border:none;
 }   
 
 
