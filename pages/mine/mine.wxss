@@ -88,3 +88,10 @@
   background-image: url(https://hooxz.cn/xiaoyuan/api/v1/images/apl_bd.png);
   color: #5F98FD;
 }
+
+.btn-primary {
+  width: 250rpx;
+  box-shadow: rgb(0, 178, 106) 0rpx 1rpx 50rpx 0rpx;
+  background-color: rgb(0, 178, 106);
+  color: white;
+}
