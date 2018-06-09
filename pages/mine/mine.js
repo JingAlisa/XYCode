@@ -84,6 +84,23 @@ Page({
     })
   },
 
+  // 通过按钮绑定微信，获取头像昵称信息
+  bindgetuserinfo(e) {
+    let _ = e.detail.userInfo
+    setUserInfo(_)
+    that.setData({
+      avatarUrl: _.avatarUrl,
+      nickName: _.nickName,
+      uid: _.uid,
+      hasNotBindWechat: false
+    })
+    wx.showToast({
+      title: '成功获取微信用户信息',
+      icon: 'none',
+      duration: 1000
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -99,14 +116,39 @@ Page({
     getUserInfo().then(_ => {
       let userInfo = _.user
       console.log(userInfo)
-      if(!(userInfo.avatarUrl && userInfo.nickName)) {
-        getUserInfoFromWx().then(_ => {
-          setUserInfo(_)
-          that.setData({
-            avatarUrl: _.avatarUrl,
-            nickName: _.nickName,
-            uid: _.uid
-          })
+      if(!(_.user.avatarUrl && _.user.nickName)) {
+        // 当前数据库中无头像和昵称
+        wx.getSetting({
+          success: function(res){
+            // 检查是否曾授权
+            if (res.authSetting['scope.userInfo']) {
+              // 1.已经授权，可以直接调用 getUserInfo 获取头像昵称
+              getUserInfoFromWx().then(_ => {
+                setUserInfo(_)
+                that.setData({
+                  avatarUrl: _.avatarUrl,
+                  nickName: _.nickName,
+                  uid: _.uid
+                })
+                wx.showToast({
+                  title: '成功获取微信用户信息',
+                  icon: 'none',
+                  duration: 1000
+                })
+              })
+            } else {
+              // 2. 若从未授权，显示绑定微信按钮，并Toast提示
+              that.setData({
+                hasNotBindWechat: true
+              })
+              wx.showToast({
+                title: '请先绑定微信账号',
+                icon: 'none',
+                duration: 1000
+              })
+
+            }
+          }
         })
       } else {
         that.setData({

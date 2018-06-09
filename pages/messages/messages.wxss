@@ -11,7 +11,7 @@
 
 .team-area-title {
   color: #aaa;
-  font-size: 35rpx;
+  font-size: 32rpx;
 }
 
 .team-desc {

@@ -84,3 +84,9 @@
   box-shadow: #aaa 0rpx 1rpx 50rpx 0rpx;
   background-color: #aaa;
 }
+
+.btn-primary {
+  width: 400rpx;
+  box-shadow: rgb(0, 178, 106) 0rpx 1rpx 50rpx 0rpx;
+  background-color: rgb(0, 178, 106);
+}
