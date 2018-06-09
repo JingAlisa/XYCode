@@ -10,9 +10,14 @@
 
         <view class='userInfo'>
             <image class="userInfo-avatar" src="{{ avatarUrl }}" background-size="cover"></image>
-            <text class='userInfo-name'>{{ nickName }}</text>
-            <text class='userInfo-desc' wx:if="{{createTeamCount + applyTeamCount > 0}}">已成功参与 {{createTeamCount + applyTeamCount}} 个战队</text>
-            <text class='userInfo-desc' wx:else >快创建自己的战队吧！</text>
+            <block wx:if="{{ !hasNotBindWechat }}">
+                <text class='userInfo-name'>{{ nickName }}</text>
+                <text class='userInfo-desc' wx:if="{{createTeamCount + applyTeamCount > 0}}">已成功参与 {{createTeamCount + applyTeamCount}} 个战队</text>
+                <text class='userInfo-desc' wx:else >快创建自己的战队吧！</text>
+            </block>
+            <block wx:else>
+                <button class="btn-primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">绑定微信</button>
+            </block>
         </view>
 
         <view class="teamsEntries">

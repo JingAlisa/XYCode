@@ -34,40 +34,12 @@ Page({
     // 专题页
     specialCategory:'',
     tag:[]
-  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that=this;
-    let session_3rd=wx.getStorageSync('session_3rd');
-    console.log(session_3rd);
-    user.getUserContact(session_3rd).then(userData=>{
-      let contacts = userData.user.contacts;
-      for (let i in contacts){
-        switch(contacts[i].way){
-          case 'qq':
-            that.setData({
-              qq:contacts[i].text
-            });
-            break;
-          case 'wechat':
-            that.setData({
-              wechat: contacts[i].text
-            });
-            break;
-          case 'phone':
-            that.setData({
-              phone: contacts[i].text
-            });
-            break;
-          default:
-            break;
-        }
-      }
-    });
     console.log(app.globalData.specialCategory);
     if (app.globalData.specialCategory){
       that.setData({
@@ -83,8 +55,6 @@ Page({
   onReady: function () {
     console.log(getCurrentPages());
   },
-
-  
 
   bindCategoryChange: function (e) {
     console.log('picker category 发生选择改变，携带值为', e.detail.value);
@@ -197,6 +167,7 @@ Page({
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
+    let that=this;
     console.log(app.globalData.specialCategory);
     if (app.globalData.specialCategory) {
       this.setData({
@@ -209,5 +180,38 @@ Page({
         tag: []
       })
     }
+    user.getUserInfo().then(_ => {
+      // 若之前从未登录过
+      console.log(_)
+      if(!(_.user.avatarUrl && _.user.nickName)) {
+        wx.switchTab({
+          url: '/pages/mine/mine'
+        })
+        return;
+      }
+      // 若之前已登录并获取过用户信息
+      let contacts = _.user.contacts;
+      for (let i in contacts){
+        switch(contacts[i].way){
+          case 'qq':
+            that.setData({
+              qq:contacts[i].text
+            });
+            break;
+          case 'wechat':
+            that.setData({
+              wechat: contacts[i].text
+            });
+            break;
+          case 'phone':
+            that.setData({
+              phone: contacts[i].text
+            });
+            break;
+          default:
+            break;
+        }
+      }
+    })
   }
 })

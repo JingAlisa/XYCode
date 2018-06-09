@@ -128,19 +128,20 @@
 }
 .createrImg{
   flex: 1;
-  padding-right: 5pt;
-  border-right: 1px solid #c2c2c2;
+   padding-right: 5pt; 
+  /* border-right: 1px solid #c2c2c2; */
 }
 
 .applyAvatarsCtn{  
   flex: 4;
   
 }
-/* .applyAvatars:not(:nth-last-child(1)){
+ .applyAvatars{
   padding-left: 5pt;
-} */
-.applyAvatars{
+} 
+.applyAvatars:nth-child(1){
   padding-left: 5pt;
+  border-left: 1px solid #ddd; 
 }
 
 .detailBtn{

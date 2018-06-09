@@ -2,7 +2,8 @@
 const Team = require("../../../utils/team");
 
 import {
-  getUserInfo
+  getUserInfo,
+  setUserInfo
 } from '../../../utils/user'
 
 Component({
@@ -26,12 +27,19 @@ Component({
     applyInfo: '',
     contacts: [],        // 用户之前填写过的联系方式，在服务端获取
     contactInputType: 'number',
-    textareaLength:'0'
+    textareaLength:'0',
+    hasNotBindWechat: false
   },
 
   ready: function () {
     let that = this
     getUserInfo().then(_ => {
+      if(!(_.user.avatarUrl && _.user.nickName)) {
+        that.setData({
+          hasNotBindWechat: true
+        })
+        return;
+      }
       that.setData({
         contacts: _.user.contacts
       })
@@ -76,6 +84,11 @@ Component({
       this.setData({
         contactText: e.detail.value
       })
+    },
+
+    GetUserInfoAndSubmit(e) {
+      setUserInfo(e.detail.userInfo)
+      this.submitApl()
     },
 
     submitApl: function () {

@@ -16,9 +16,11 @@
   <view class='textareaNum'>{{textareaLength}}/500</view>
 </view>
 
-<view class="btn-area">
+<view class="btn-area" wx:if="{{ !hasNotBindWechat }}">
   <button class="btn" bindtap="submitApl">提交申请</button>
   <button class="btn btn-default" bindtap="clearApl">重新填写</button>
 </view>
 
-
+<view class="btn-area" wx:else>
+  <button class="btn btn-primary" open-type="getUserInfo" bindgetuserinfo="GetUserInfoAndSubmit">绑定微信并提交申请</button>
+</view>
